@@ -1,0 +1,52 @@
+@import "../../../var.scss";
+
+.header_top_wrap{
+width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #4cb1ca;
+    .header_top_container{
+      width: $container-width;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .page_parametr{
+        width: 260px;
+        display: flex;
+        flex-direction: row;
+        .language, .currency{
+          width: 50%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          .language_label, .currency_label{
+            font-size: 14px;
+            color: #bef2ff;
+          }
+          .language_select, .currency_select{
+            font-size: 14px;
+            color: #b7e0ea;
+            background-color: transparent;
+            border: none;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+    .rout_page_wrap{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .rout_page_items{
+        color: #ffffff;
+        .rout_page_item{
+          font-size: 14px;
+          margin: 0 15px 0 15px;
+          cursor: pointer;
+        }
+      }
+    }
+  }

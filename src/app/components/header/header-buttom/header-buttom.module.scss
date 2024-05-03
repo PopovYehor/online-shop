@@ -1,0 +1,98 @@
+@import "../../../var.scss";
+.header_bottom_wrap{
+    width: 100%;
+    height: 110px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    .header_bottom_container{
+      width: $container-width;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      .link{
+        text-decoration: none;
+        color: black
+      }
+      .shop_title_wrap{
+        width: 170px;
+        .shop_title{
+          font-size: 28px;
+          font-weight: 600;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: initial;
+        }
+      }
+      .rout_filter_items{
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-weight: 900;
+        .rout_filter_top, .rout_filter_bottom{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          .filter_item{
+            width: 200px;
+            margin-top: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: initial;
+          }
+        }
+        
+      }
+      .search_page_wrap{
+        width: 175px;
+        display: flex;
+        position: relative;
+        .search_page_input{
+          width: 100%;
+          height: 30px;
+          padding-left: 10px;
+        }
+        .search_button{
+          background-color: transparent;
+          border: none;
+          position: absolute;
+          right: 10px;
+          top: 6px;
+          font-size: 15px;
+          cursor: pointer;
+        }
+      }
+      .cart_wrap{
+        width: 150px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .sale_cart{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 35px;
+          height: 35px;
+          background-color: #7db122;
+          border-radius: 50%;
+          border: none;
+          font-size: 15px;
+          svg{
+            path{fill: #fff}
+          }
+        }
+        .cart_count{
+          font-size: 15px;
+          text-transform: uppercase;
+          font-weight: 900;
+          margin-left: 10px;
+          text-decoration: none;
+          color: initial;
+        }
+      }
+    }
+  }
