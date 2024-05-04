@@ -10,34 +10,39 @@ export default function PromoSlide (){
     const arrSlide = [slide1, slide2, slide3]
     const arrSliderMainText = ['aluminium club', 'cool sound', 'be beautiful']
     const arrSliderDescriptionText = ['expirience ray-ban', 'listen sony', 'put on zara']
-    let ints = 0
     const [sliderImg, setSliderImg] = useState(arrSlide[0])
     const [slideMainText, setSlideMainText] = useState(arrSliderMainText[0])
     const [slideDescriptionText, setSlideDescriptionText] = useState(arrSliderDescriptionText[0])
-
-    
-
-    /* const changerSlide = (int,i)=>{
-        setSlideCount(`${slideCount}${int}${i}`)
-        setSliderImg(arrSlide[slideCount])
-        setSlideMainText(arrSliderMainText[slideCount])
-        setSlideDescriptionText(arrSliderDescriptionText[slideCount])
-        console.log(int, i)
-    } */
+    const [slideIndex, setSlideIndex] = useState(0)
 
     const slider = (e)=>{
         const target = e.target
         if (target.getAttribute('id') == 'slider-right'){
-            if(ints < arrSlide.length-1){
-                ints++
-                setSliderImg(arrSlide[ints])
-            }else{
-                ints=0
+            if(slideIndex !== arrSlide.length-1){
+                setSlideIndex(slideIndex+1)
+                setSliderImg(arrSlide[slideIndex+1])
+                setSlideMainText(arrSliderMainText[slideIndex+1])
+                setSlideDescriptionText(arrSliderDescriptionText[slideIndex+1])
+            }else if(slideIndex === arrSlide.length-1){
+                setSlideIndex(0)
                 setSliderImg(arrSlide[0])
-                console.log('000')
+                setSlideMainText(arrSliderMainText[0])
+                setSlideDescriptionText(arrSliderDescriptionText[0])
             }
         }
-        console.log(ints)
+        if (target.getAttribute('id') == 'slider-left'){
+            if(slideIndex === 0){
+                setSlideIndex(arrSlide.length-1)
+                setSliderImg(arrSlide[arrSlide.length-1])
+                setSlideMainText(arrSliderMainText[arrSliderMainText.length-1])
+                setSlideDescriptionText(arrSliderDescriptionText[arrSliderDescriptionText.length-1])
+            }else if(slideIndex!==0){
+                setSlideIndex(slideIndex-1)
+                setSliderImg(arrSlide[slideIndex-1])
+                setSlideMainText(arrSliderMainText[slideIndex-1])
+                setSlideDescriptionText(arrSliderDescriptionText[slideIndex-1])
+            }
+        }
     }
 
     return(
