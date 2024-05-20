@@ -1,0 +1,25 @@
+.main_title{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    .main_title_container{
+        width: 1115px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        h2{
+            font-size: 20px;
+            font-weight: 800;
+            margin: 0;
+        }
+        .main_title_sort_container{
+            width: 225px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            p{
+                margin: 0;
+            }
+        }
+    }
+  }
