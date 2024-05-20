@@ -6,6 +6,7 @@ import Footer from "@/components/view/footer/footer";
 import PromoSlide from "@/components/promo-slide/promo-slide";
 import CatalogItem from "@/components/catalog-item/catalog-item";
 import SaleSlide from "@/components/sale-slide/sale-slide";
+import MainTitle from "@/components/main-title/main-title";
 
 export default function Home() {
 
@@ -25,10 +26,13 @@ export default function Home() {
     <div>
       <Header/>
       <PromoSlide/>
-      <div className="catalog-wripper">
-        <div className="catalog-container">
-          <CatalogItem/>
-          <SaleSlide/>
+      <div className="main-wrap">
+        <MainTitle/>
+        <div className="catalog-wripper">
+          <div className="catalog-container">
+            <CatalogItem/>
+            <SaleSlide/>
+          </div>
         </div>
       </div>
       <Footer/>
