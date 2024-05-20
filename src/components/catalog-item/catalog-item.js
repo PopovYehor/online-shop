@@ -2,34 +2,24 @@ import styles from "./catalog-item.module.scss"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "@/hooks/hooks";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { fetchCatalog } from "@/reducers/catalogReducer";
-import { store } from "@/store/store";
 
 export default function CatalogItem (){
 
     const dispatch = useAppDispatch()
-    const catalog = store.getState().catalog.catalog
+    const catalog = useSelector((state)=>state.catalog.catalog)
 
     useEffect(()=>{
         dispatch(fetchCatalog())
-        console.log(catalog)
-    },[catalog])
+    },[]) 
 
 return(
     <>  
-        {catalog.data.map((elem)=>{
-            return(
-                <>
-                <p>{elem.title}</p>
-                </>
-            )
-        })}
-        {/* <div className={styles.catalog_container}>
-            {dataProduct.map((elem)=>{
+        <div className={styles.catalog_container}>
+            {catalog.data.map((elem)=>{
                 return (
                     <div  className={styles.catalog_item} >
                         <div className={styles.catalog_item_img}>
@@ -47,7 +37,7 @@ return(
                     </div>
                 )
             })}
-        </div> */}
+        </div>
     </>
     )
 }

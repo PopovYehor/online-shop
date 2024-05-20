@@ -5,6 +5,7 @@ import Header from "@/components/view/header/header";
 import Footer from "@/components/view/footer/footer";
 import PromoSlide from "@/components/promo-slide/promo-slide";
 import CatalogItem from "@/components/catalog-item/catalog-item";
+import SaleSlide from "@/components/sale-slide/sale-slide";
 
 export default function Home() {
 
@@ -24,7 +25,12 @@ export default function Home() {
     <div>
       <Header/>
       <PromoSlide/>
-      <CatalogItem/>
+      <div className="catalog-wripper">
+        <div className="catalog-container">
+          <CatalogItem/>
+          <SaleSlide/>
+        </div>
+      </div>
       <Footer/>
     </div>
    </>

@@ -4,7 +4,7 @@ import { store } from "@/store/store"
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    catalog: [],
+    catalog: {data:[{title:0, id:0}]},
     status: 'idle',
     error: null
 }
@@ -23,7 +23,7 @@ export const fetchCatalog = createAsyncThunk('products', async (catalog, thunkAp
 
 const catalogSlice = createSlice({
     name: 'catalog',
-    initialState,
+    initialState: initialState,
     extraReducers(builder){
         builder
         .addCase(fetchCatalog.pending, (state, action) => {
