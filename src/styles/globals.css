@@ -1,0 +1,9 @@
+.catalog-wripper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.catalog-container{
+    width: 1115px;
+    display: flex;
+}
