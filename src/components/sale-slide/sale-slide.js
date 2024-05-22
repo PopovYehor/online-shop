@@ -13,8 +13,6 @@ export default function SaleSlide(){
     let i = 0
     
     useEffect(()=>{
-        const saleIndicator = document.getElementById('style-slder')
-        saleIndicator.childNodes[0].classList.add('active')
         setInterval(()=>{
             if (i <= (imgArray.length-2)){
                 i ++
@@ -24,7 +22,7 @@ export default function SaleSlide(){
                 setImg(imgArray[i])
             }
         }, 5000)
-        
+        clearInterval(2)
     }, [])
     
     return(
@@ -34,9 +32,11 @@ export default function SaleSlide(){
                 <img src={img}/>
             </div>
             <div className={styles.sale_slider}>
-                {imgArray.map((elem)=>{
+                {imgArray.map((elem, i)=>{
                     return(
-                        <div id="style-slder" className={img == elem ? `${styles.slider_item} ${styles.active}`: styles.slider_item}></div>
+                        <div key={i} name={'slider_item'} 
+                            className={img == elem ? `${styles.slider_item} ${styles.active}`: styles.slider_item}>
+                        </div>
                     )
                 })}
             </div>
