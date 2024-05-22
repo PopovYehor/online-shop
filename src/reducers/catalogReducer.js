@@ -1,10 +1,9 @@
 import { API_URL } from "@/constants/api"
 import { axios } from "@/services/axiosServices"
-import { store } from "@/store/store"
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    catalog: {data:[{title:0, id:0}]},
+    catalog: {data:[{title: 0, id: 0}]},
     status: 'idle',
     error: null
 }
@@ -24,6 +23,12 @@ export const fetchCatalog = createAsyncThunk('products', async (catalog, thunkAp
 const catalogSlice = createSlice({
     name: 'catalog',
     initialState: initialState,
+    reducers:{
+        SET_CURRENT_CATALOG:(state, param)=>{
+            const { payload } = param
+            state.catalog.data =  payload
+        }
+    },
     extraReducers(builder){
         builder
         .addCase(fetchCatalog.pending, (state, action) => {
@@ -39,7 +44,8 @@ const catalogSlice = createSlice({
           })
     }
 })
-
+const { actions, reducer } = catalogSlice
+export const { SET_CURRENT_CATALOG } = actions
 export const CatalogReducer = state => state.catalog
 
 export default catalogSlice.reducer
