@@ -3,8 +3,10 @@ import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faMagnifyingGlass, faTags, faCartShopping} from "@fortawesome/free-solid-svg-icons";
 import styles from './header-buttom.module.scss'
+import { useSelector } from "react-redux";
 function HeaderBottom (){
-    const [basketCount, setBasketCount] = useState(0)
+
+    const cart = useSelector((state)=>state.cart.cart)
     
     return(
 <>
@@ -15,7 +17,7 @@ function HeaderBottom (){
         </div>
         <div className={styles.rout_filter_items}>
             <div className={styles.rout_filter_top }>
-                <Link className={styles.filter_item} href="/catalog">Catalog</Link>
+                <Link className={styles.filter_item} href="/">Catalog</Link>
                 <Link className={styles.filter_item} href="/electronics">electronics</Link>
                 <Link className={styles.filter_item} href="/jewelery">jewelery</Link>
             </div>
@@ -31,7 +33,7 @@ function HeaderBottom (){
         <div className={styles.cart_wrap}>
             <button className={styles.sale_cart}><FontAwesomeIcon icon={faTags} /></button>
             <Link className={styles.sale_cart} href="/basket"><FontAwesomeIcon icon={faCartShopping} /></Link>
-            <Link className={styles.cart_count} href="/basket"> cart ({basketCount})</Link>
+            <Link className={styles.cart_count} href="/basket"> cart ({cart.length})</Link>
         </div>
     </div>
 </div>
