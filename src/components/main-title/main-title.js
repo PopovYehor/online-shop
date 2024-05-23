@@ -66,7 +66,7 @@ export default function MainTitle({title}){
                 <div className={styles.main_title_sort_container}>
                     <p>SORT BY</p>
                     <Box sx={{ minWidth: 120 }} className={inter.className}>
-                    <FormControl sx={{ m: 1, minWidth: 120 }}>
+                    <FormControl sx={{ m: 1, minWidth: 120 }} size="small" className={styles.sort_selector}>
                         <Select
                         value={sort}
                         onChange={handleChange}

@@ -6,13 +6,7 @@ import { SET_CURRENT_JEWELERY } from "@/reducers/jeweleryReducer";
 import { SET_CURRENT_ELECTRONICS } from "@/reducers/electronicsReducer";
 import { SET_CURRENT_MAN_CLOTHING } from "@/reducers/manClothingReducer";
 import { SET_CURRENT_WOMAN_CLOTHING } from "@/reducers/womanClothingReducer";
-import axios from "axios";
-import Header from "@/components/view/header/header";
-import Footer from "@/components/view/footer/footer";
-import PromoSlide from "@/components/promo-slide/promo-slide";
-import CatalogItem from "@/components/catalog-item/catalog-item";
-import SaleSlide from "@/components/sale-slide/sale-slide";
-import MainTitle from "@/components/main-title/main-title";
+import CatalogView from "@/components/view/catalog-view/catalog-view";
 import { useAppDispatch } from "@/hooks/hooks";
 export default function Home() {
 
@@ -51,21 +45,6 @@ export default function Home() {
   },[catalog])
 
   return (
-   <>
-    <div>
-      <Header/>
-      <PromoSlide/>
-      <div className="main-wrap">
-        <MainTitle title = {'CATALOG'}/>
-        <div className="catalog-wripper">
-          <div className="catalog-container">
-            <CatalogItem catalog_item={catalog.catalog}/>
-            <SaleSlide/>
-          </div>
-        </div>
-      </div>
-      <Footer/>
-    </div>
-   </>
+    <CatalogView catalog_title={'CATALOG'} item={catalog.catalog}></CatalogView>
   );
 }

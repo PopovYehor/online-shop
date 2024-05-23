@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "@/hooks/hooks";
 import { fetchCatalog } from "@/reducers/catalogReducer";
 import { SET_CURRENT_JEWELERY } from "@/reducers/jeweleryReducer";
+import CatalogView from "@/components/view/catalog-view/catalog-view";
 export default function Electronics(){
     const dispatch = useAppDispatch()
     const jewelery = useSelector((state)=>state.jewelery)
@@ -25,24 +26,10 @@ export default function Electronics(){
             catalog.catalog.data.forEach((elem)=>{
                 elem.category == "jewelery" ? jewelery = [...jewelery, elem] : null
             })
-            console.log('jewelery', jewelery)
             dispatch(SET_CURRENT_JEWELERY(jewelery))
         }
     },[catalog])
     return(
-        <>
-        <Header/>
-        <PromoSlide/>
-        <div className="main-wrap">
-            <MainTitle title = {'JEWELERY'}/>
-            <div className="catalog-wripper">
-                <div className="catalog-container">
-                    <CatalogItem catalog_item={jewelery.jewelery}/>
-                    <SaleSlide/>
-                </div>
-            </div>
-        </div>
-        <Footer/>
-   </>
+        <CatalogView catalog_title={'JEWELERY'} item={jewelery.jewelery}></CatalogView>
     )
 }

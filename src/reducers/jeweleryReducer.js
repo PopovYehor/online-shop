@@ -12,7 +12,6 @@ const jewelerySlice = createSlice({
     reducers:{
         SET_CURRENT_JEWELERY:(state, param)=>{
             const { payload } = param
-            console.log('payload', payload)
             state.jewelery.data = payload
             state.status = 'update'
         }

@@ -7,13 +7,12 @@
     width: 1115px;
     display: flex;
 }
-
+a{
+    all: unset;
+}
 
 .css-1869usk-MuiFormControl-root{
     margin: 0;
-}
-.MuiOutlinedInput-notchedOutline{
-    border: none;
 }
 .MuiBox-root{
     position: relative;
@@ -21,4 +20,8 @@
 }
 .MuiSelect-select{
     font-size: 18px;
+}
+
+#outlined-basic{
+    top: 4px
 }

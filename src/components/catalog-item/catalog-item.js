@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "@/hooks/hooks";
 import { useSelector } from "react-redux";
 import { SET_CURRENT_CART } from "@/reducers/cartReducer";
+import { AddToBasket } from "@/helpers/cartScripts";
 
 export default function CatalogItem ({catalog_item}){
 
@@ -13,7 +14,7 @@ export default function CatalogItem ({catalog_item}){
     const catalog = useSelector((state)=>state.catalog.catalog)
     const cart = useSelector((state)=>state.cart.cart)
 
-    const handleCartChange = (event)=>{
+    /* const handleCartChange = (event)=>{
         const targetId = event.target.id
         let id = ''
         targetId == '' ? id= event.target.parentNode.id : id = targetId
@@ -23,8 +24,7 @@ export default function CatalogItem ({catalog_item}){
                 elem.id == id ? dispatch(SET_CURRENT_CART(elem)) : null
             })
         }
-    }
-    useEffect(()=>{console.log('catalog', catalog_item.data)},[])
+    } */
 
 return(
     <>  
@@ -43,7 +43,7 @@ return(
                             <div className={styles.catalog_item_buy} id={elem.id}>
                                 <button id={elem.id}
                                     className={cart.some(element => element.id == elem.id) ? `${styles.catalog_item_buy_btn} ${styles.active}` : styles.catalog_item_buy_btn}
-                                    onClick={handleCartChange}>
+                                    onClick={(e)=>AddToBasket(e, cart, catalog, dispatch)}>
                                         <FontAwesomeIcon id={elem.id} icon={ faBasketShopping}/>
                                 </button>
                             </div>

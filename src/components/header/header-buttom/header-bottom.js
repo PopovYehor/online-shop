@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faMagnifyingGlass, faTags, faCartShopping} from "@fortawesome/free-solid-svg-icons";
+import {faTags, faCartShopping} from "@fortawesome/free-solid-svg-icons";
 import styles from './header-buttom.module.scss'
 import { useSelector } from "react-redux";
+import { TextField } from "@mui/material";
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 function HeaderBottom (){
 
     const cart = useSelector((state)=>state.cart.cart)
@@ -27,13 +28,13 @@ function HeaderBottom (){
             </div>
         </div>
         <div className={styles.search_page_wrap}>
-            <input className={styles.search_page_input} placeholder="Search.."></input>
-            <button className={styles.search_button}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
+            <TextField className={styles.input_header} id="outlined-basic" label="Search" variant="outlined" size="small"/>
+            <button className={styles.search_button}><SearchOutlinedIcon/></button>
         </div>
         <div className={styles.cart_wrap}>
             <button className={styles.sale_cart}><FontAwesomeIcon icon={faTags} /></button>
-            <Link className={styles.sale_cart} href="/basket"><FontAwesomeIcon icon={faCartShopping} /></Link>
-            <Link className={styles.cart_count} href="/basket"> cart ({cart.length})</Link>
+            <Link className={styles.sale_cart} href="/cart"><FontAwesomeIcon icon={faCartShopping} /></Link>
+            <Link className={styles.cart_count} href="/cart"> cart ({cart.length})</Link>
         </div>
     </div>
 </div>

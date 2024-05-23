@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    womanClothing: [],
+    womanClothing: {data:[{title: 0, id: 0}]},
     status: 'idle',
     error: null
 }

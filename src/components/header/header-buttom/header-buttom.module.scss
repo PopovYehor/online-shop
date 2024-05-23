@@ -51,17 +51,15 @@
         width: 175px;
         display: flex;
         position: relative;
-        .search_page_input{
-          width: 100%;
-          height: 30px;
-          padding-left: 10px;
+        .input_header{
+          top: 2px;
         }
         .search_button{
           background-color: transparent;
           border: none;
           position: absolute;
-          right: 10px;
-          top: 6px;
+          right: 6px;
+          top: 9px;
           font-size: 15px;
           cursor: pointer;
         }
