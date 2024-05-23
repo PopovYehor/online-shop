@@ -1,0 +1,32 @@
+import Products from "@/components/product/product"
+import Footer from "@/components/view/footer/footer"
+import Header from "@/components/view/header/header"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+
+export default function(){
+    const [id, setId] = useState('')
+    const [item, setItem] = useState({})
+    const catalog = useSelector((state)=>state.catalog.catalog)
+    useEffect(()=>{
+        setId(window.location.href.replace('http://localhost:3000/product/', ''))
+    },[])
+    useEffect(()=>{
+        catalog.data.forEach((elem)=>{
+            elem.id == id ? setItem(elem) : null
+        })
+    },[id])
+    return(
+        <>
+            <Header/>
+            <Products 
+            id={item.id}
+            img={item.image}
+            title={item.title}
+            description={item.description}
+            price={item.price}
+            />
+            <Footer/>
+        </>
+    )
+}
