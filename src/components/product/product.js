@@ -8,7 +8,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useEffect, useState } from "react"
 import DoneIcon from '@mui/icons-material/Done';
 import Link from "next/link"
-export default function Products({id, img, title, description, price}){
+export default function Products({id=null, img, title, description, price}){
     const [transition, setTransition] = useState(false)
     const [cartCheck, setCartCheck] = useState(false)
     const cart = useSelector((state)=>state.cart.cart)
@@ -27,6 +27,7 @@ export default function Products({id, img, title, description, price}){
     },[id])
 
     return(
+    <>
         <div className={styles.main_description_wrap}>
             <div className={styles.main_description_container_wrap}>
                 <div className={styles.description_img}>
@@ -63,6 +64,7 @@ export default function Products({id, img, title, description, price}){
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
+    </>
     )
 }

@@ -84,6 +84,19 @@
             svg{
               path{fill: #fff;}
             }
+            .done_icon{
+              position: relative;
+              top: 2px;
+            }
+          }
+          .loading_btn{
+            min-width: none;
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 50%;
+            background-color: #7db12286;
+            border-color: #7db12286;
+            padding: 0;
           }
           .catalog_item_buy_btn.active{
             background-color: #4cb1ca;
