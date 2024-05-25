@@ -28,7 +28,9 @@ a{
 .css-1u5rjc5-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root{
     min-width: 50px;
 }
-
+.css-11qr2p8-MuiButtonBase-root-MuiButton-root{
+    min-width: 50px;
+}
 .slide-in{
     position: absolute;
     top: 0;
