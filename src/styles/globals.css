@@ -7,6 +7,15 @@
     width: 1115px;
     display: flex;
 }
+.container-page{
+    width: 1400px;
+}
+.main-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 100px 0 100px 0;
+}
 a{
     all: unset;
 }

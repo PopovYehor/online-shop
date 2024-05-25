@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Inter } from "@next/font/google";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/hooks/hooks";

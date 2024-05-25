@@ -10,7 +10,7 @@ export default function CatalogView({catalog_title, item}){
         <>
         <Header/>
         <PromoSlide/>
-        <div className="main-wrap">
+        <div>
             <MainTitle title = {catalog_title}/>
             <div className="catalog-wripper">
                 <div className="catalog-container">

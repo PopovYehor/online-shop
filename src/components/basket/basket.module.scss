@@ -1,0 +1,60 @@
+@import "../../styles/var.scss";
+
+.basket_items_wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $page-width;
+    padding: 25px;
+    border-top: 1px solid #f1f0f0;
+    border-bottom: 1px solid #f1f0f0;
+    .basket_container{
+        width: $container-width;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        
+        .result_price{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+            .add_to_basket{
+                width: 235px;
+                height: 55px;
+                border-radius: 40px;
+                border: none;
+                background-color: #7db122;
+                color: #fff;
+                font-size: 23px;
+                transition: all .5s;
+            }
+            .add_to_basket:hover{
+                background-color: #6c9b1c;
+            }
+            .result-price-text{
+                font-size: 35px;
+                margin-left: 50px;
+            } 
+        }
+        .empty_cart{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 170px;
+            font-size: 40px;
+            cursor: default;
+            a{
+                cursor: pointer;
+                color: #000;
+            }
+        }
+        .empty_cart_link{
+            font-size: 30px;
+            background-color: #4cb1ca;
+        }
+    }
+}
