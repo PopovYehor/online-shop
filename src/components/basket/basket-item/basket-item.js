@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import DeleteIcon from '@mui/icons-material/Delete';
 import styles from "./basket-item.module.scss"
 import Link from "next/link";
+import CountButtons from "./count-buttons/count-buttons";
 export default function BasketItem(){
 
     const cart = useSelector((state)=>state.cart.cart)
@@ -16,6 +17,8 @@ export default function BasketItem(){
         dispatch(SET_CHANGE_CART(change))
     }
 
+
+
     return(
         <>
         {cart.map((elem)=>{
@@ -27,10 +30,11 @@ export default function BasketItem(){
                 <div className={styles.item_title}>
                     <h3 className={styles.title_item}>{elem.title}</h3>
                     <p className={styles.item_description}>{elem.description}</p>
+                    <div className={styles.basket_price}>          
+                        <span className={styles.price}>{elem.summPrice} $</span>
+                    </div>
                 </div>
-                <div className={styles.basket_price}>          
-                    <span className={styles.price}>{elem.price} $</span>
-                </div>
+                <CountButtons cartItem={elem}/>
                 <div className={styles.delete_from_basket}>
                     <button className={styles.delete_from_basket_btn} id={elem.id} onClick={(e)=>deleteFromBasket(e)}><DeleteIcon id={elem.id}/></button>
                 </div>

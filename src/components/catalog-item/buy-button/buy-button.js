@@ -19,7 +19,7 @@ export function BuyButton({id}){
         setTransition(true)
         setTimeout(()=>{
             AddToBasket(e,cart, catalog, dispatch)
-        }, 2000)
+        }, 1000)
     }
 
     return(

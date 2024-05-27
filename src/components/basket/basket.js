@@ -7,12 +7,12 @@ import { Button } from "@mui/material"
 
 export default function Basket(){
     const cart = useSelector((state)=>state.cart.cart)
-    const [sum, setSum] = useState(0)
+    const [sum, setSum] = useState('')
     useEffect(()=>{
         setSum(()=>{
             return(
                 cart.reduce((accumulator, object) => {
-                    return accumulator + object.price;
+                    return (accumulator + object.summPrice)
                   }, 0)
             )
         })
