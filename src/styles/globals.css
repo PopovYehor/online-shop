@@ -43,6 +43,9 @@ a{
 .css-1k23hlb-MuiButtonBase-root-MuiButton-root{
     min-width: 0px;
 }
+.css-ahj2mt-MuiTypography-root{
+    font-family: unset ;
+}
 .slide-in{
     position: absolute;
     top: 0;
@@ -58,4 +61,45 @@ a{
     width: 100%;
     height: 100vh;
     background: #0f0f0f;
-    transform-origin: top;}
+    transform-origin: top;
+}
+
+.done_wrap{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.done_item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 115px;
+    height: 115px;
+    background-image: linear-gradient(to top, #24f083, #23e67d, #21db78, #20d172, #1fc76d);
+    box-shadow: 0px 0px 50px 15px rgba(0,186,12,0.82);
+    background-color: #108C49;
+}
+.done_icon{
+    color: #fff;
+    width: 40px;
+    height: 40px;
+}
+.done_item_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+.done_item_header{
+    margin: 0;
+    font-size: 56px;
+}
+.done_item_description{
+    margin: 0;
+    margin-top: 20px;
+    font-size: 22px;
+}

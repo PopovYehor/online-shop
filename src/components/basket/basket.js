@@ -4,6 +4,10 @@ import { useState, useEffect } from "react"
 import BasketItem from "./basket-item/basket-item"
 import Link from "next/link"
 import { Button } from "@mui/material"
+import DeliveryData from "./basket-item/delivery-data/delivery-data"
+import BuyerData from "./basket-item/buyer-data/buyer-data"
+import PaymentData from "./payment-data/payment-data"
+import OrderButton from "./order-button/order-button"
 
 export default function Basket(){
     const cart = useSelector((state)=>state.cart.cart)
@@ -19,23 +23,28 @@ export default function Basket(){
     }, [cart])
     return(
         <>
-        <div className={styles.basket_items_wrap}>
-            <div className={styles.basket_container}>
-                {cart.length > 0 ? 
-                    <>
-                    <BasketItem/> 
-                    <div className={styles.result_price}>
-                        <button className={styles.add_to_basket}>To order</button>
-                        <p className={styles.result_price_text}>Total: <span className={styles.result_price_item}>{sum} $</span></p>
-                    </div>
-                    </>
-                    :
-                    <div className={styles.empty_cart}>
-                        <div><span className={styles.empty_cart_text}>CART IS AMPTY</span></div>
-                        <Button variant="contained" size="large" className={styles.empty_cart_link}><Link href={'/'}>Continue shopping </Link></Button>
-                    </div>}
-                
+        <div className={styles.basket_wrap}>
+            <div className={styles.basket_items_wrap}>
+                <div className={styles.basket_container}>
+                    {cart.length > 0 ? 
+                        <>
+                        <BasketItem/> 
+                        <div className={styles.result_price}>
+                            <button className={styles.add_to_basket}>To order</button>
+                            <h3 className={styles.result_price_text}>Total: <span className={styles.result_price_item}>{sum} $</span></h3>
+                        </div>
+                        </>
+                        :
+                        <div className={styles.empty_cart}>
+                            <div><span className={styles.empty_cart_text}>CART IS AMPTY</span></div>
+                            <Button variant="contained" size="large" className={styles.empty_cart_link}><Link href={'/'}>Continue shopping </Link></Button>
+                        </div>}
+                </div>
             </div>
+            <BuyerData/>
+            <DeliveryData/>
+            <PaymentData/>
+            <OrderButton/>
         </div>
         </>
     )

@@ -1,0 +1,39 @@
+@import "../../../../../styles/var.scss";
+.delivery_item{
+    width: 750px;
+    height: 80px;
+    @include flex(row,flex-start ,center );
+    border: 1px solid #E7EAEF;
+    border-radius: 10px;
+    margin-top: 10px;
+    .checkbox_item{
+        @include flex(row,center ,center );
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: 1px solid #CED2DA;
+        margin-left: 25px;
+        cursor: pointer;
+        .check{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+    }
+    .checkbox_item.active{
+        background-color: #4cb1ca;
+    }
+    .delivery_item_text{
+        margin-left: 20px;
+        h3{
+            font-size: 18px;
+            color: $color-700;
+        }
+        p{
+            font-size: 16px;
+            color: #959AAE;
+            margin-top: 5px;
+        }
+    }
+}

@@ -1,0 +1,64 @@
+@import "../../../../styles/var.scss";
+.basket_delivery_wrap{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.delivery_form_checkbox{
+    @include flex(row,center ,center );
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid #CED2DA;
+    margin-left: 25px;
+}
+.delivery_wrap{
+    width: 850px;
+    border: 1px solid #F3F4F7;
+    border-radius: 15px;
+    box-shadow: 0px 20px 52px rgba(0, 0, 0, 0.15);
+    margin-top: 50px;
+    .delivery_container{
+        @include flex(column,flex-start ,flex-start);
+        margin: 45px 50px 60px 50px;
+        h2{
+            font-size: $h2;
+            color: $color-prymary;
+            margin-bottom: 5px;
+        }
+        .adres_delivery_title{
+            margin: 35px 0 5px 0;
+        }
+        p{
+            font-size: 16px;
+            color: #959AAE;
+        }
+        input{
+            width: 530px;
+            height: 65px;
+            background-color: #F3F4F7;
+            border: 1px solid #E7EAEF;
+            border-radius: 10px;
+            margin-top: 20px;
+            padding-left: 30px;
+            font-size: 18px;
+        }
+        input::placeholder{
+            color: #959AAE;
+        }
+        input:focus{
+           outline: none;
+        }
+        .upload_delivery_item{
+            @include flex(row,flex-start ,center );
+            margin-top: 25px;
+            a{
+                @include normal_A();
+                font-size: 16px;
+                font-weight: 600;
+                color: #0074D4;
+                margin-left: 10px;
+            }
+        }
+    }   
+}

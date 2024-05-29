@@ -1,5 +1,8 @@
 @import "../../styles/var.scss";
-
+.basket_wrap{
+    display: flex;
+    flex-direction: column;
+}
 .basket_items_wrap{
     display: flex;
     align-items: center;

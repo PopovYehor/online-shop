@@ -1,2 +1,52 @@
 $container-width: 1020px;
 $page-width: 1400px;
+
+$mainFont: Inter;
+$font-awesome: Inter, FontAwesome;
+
+$page-widths: 1920px;
+$item-width: 280px;
+/*color*/
+
+$color-100: #ffffff;
+$color-200: #F7F9FC;
+$color-300: #F1F4F9;
+$color-400: #E4E9F2;
+$color-500: #CBD1DC;
+$color-600: #959FB2;
+$color-700: #576077;
+$color-800: #373E54;
+$color-900: #101426;
+$color-prymary: #2B3350;
+$color-secondary: #282A2B;
+$color-third: #8B98B1;
+
+$color-button-1: #D2D4D9;
+$color-button-2: #A4AAB2;
+$color-button-3: #828892;
+
+$background-input: #F7F9FC; 
+
+/*font-size*/
+$h0: 54px;
+$h1: 44px;
+$h2: 26px;
+$h3: 22px;
+$h4: 17px;
+$b1: 19px;
+$b3: 15px;
+$c1: 13px;
+$l1: 12px;
+
+
+@mixin flex($direction, $justify, $align){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+@mixin normal_A {
+    color: black;
+    text-decoration: none;
+}
+
