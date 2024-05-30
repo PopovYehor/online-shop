@@ -1,8 +1,8 @@
-import CatalogView from "@/components/view/catalog-view/catalog-view";
+import CatalogView from "@/view/catalog-view/catalog-view";
 import { useAppDispatch } from "@/hooks/hooks";
 import { useSelector } from "react-redux";
-import { fetchCatalog } from "@/reducers/catalogReducer";
-import { SET_CURRENT_MAN_CLOTHING } from "@/reducers/manClothingReducer";
+import { fetchCatalog } from "@/reducers/catalog/catalogReducer";
+import { SET_CURRENT_MAN_CLOTHING } from "@/reducers/manClothing/manClothingReducer";
 import { useEffect } from "react";
 export default function ManClothing(){
     const dispatch = useAppDispatch()

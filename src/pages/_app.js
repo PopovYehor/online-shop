@@ -5,7 +5,6 @@ import { store } from "@/store/store";
 import Head from "next/head";
 import "@/styles/globals.css"
 import {Inter} from "@next/font/google"
-import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 const inter = Inter({
   weight:['400'],
@@ -27,21 +26,7 @@ function MyApp({ Component, pageProps }) {
       <Provider store={store}>
           <Layout>
               <div id="root" className={inter.className} key={router.pathname}>
-                <AnimatePresence mode="wait">
                   <Component {...pageProps} />
-                  {/* <motion.div className="slide-in"
-                  initial = {{scaleY: 0}}
-                  animate = {{scaleY: 0}}
-                  exit={{scaleY: 1}}
-                  transition={{duration: 1, ease: [0.22, 1, 0.36, 1]}}>
-                  </motion.div>
-                  <motion.div className="slide-out"
-                  initial = {{scaleY: 1}}
-                  animate = {{scaleY: 0}}
-                  exit={{scaleY: 0}}
-                  transition={{duration: 1, ease: [0.22, 1, 0.36, 1]}}>
-                  </motion.div> */}
-                </AnimatePresence>
               </div>
           </Layout>
       </Provider>

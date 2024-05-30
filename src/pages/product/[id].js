@@ -1,6 +1,6 @@
 import Products from "@/components/product/product"
-import Footer from "@/components/view/footer/footer"
-import Header from "@/components/view/header/header"
+import Footer from "@/components/footer/footer"
+import Header from "@/components/header/header"
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 

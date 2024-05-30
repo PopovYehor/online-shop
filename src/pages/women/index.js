@@ -1,9 +1,9 @@
-import CatalogView from "@/components/view/catalog-view/catalog-view";
+import CatalogView from "@/view/catalog-view/catalog-view";
 import { useAppDispatch } from "@/hooks/hooks";
 import { useSelector } from "react-redux";
-import { fetchCatalog } from "@/reducers/catalogReducer";
+import { fetchCatalog } from "@/reducers/catalog/catalogReducer";
 import { useEffect } from "react";
-import { SET_CURRENT_WOMAN_CLOTHING } from "@/reducers/womanClothingReducer";
+import { SET_CURRENT_WOMAN_CLOTHING } from "@/reducers/womanClothing/womanClothingReducer";
 export default function WomanClothing(){
     const dispatch = useAppDispatch()
     const womanClothing = useSelector((state)=>state.womanClothing)

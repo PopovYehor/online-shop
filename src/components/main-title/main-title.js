@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Inter } from "@next/font/google";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/hooks/hooks";
-import { SET_CURRENT_CATALOG, catalogPriceAdapter } from "@/reducers/catalogReducer";
+import { SET_CURRENT_CATALOG } from "@/reducers/catalog/catalogReducer";
 
 const inter = Inter({
     weight:['400'],

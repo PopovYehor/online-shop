@@ -1,10 +1,10 @@
-import cartReducer from "@/reducers/cartReducer";
-import catalogReducer from "@/reducers/catalogReducer";
-import electronicsReducer from "@/reducers/electronicsReducer";
-import jeweleryReducer from "@/reducers/jeweleryReducer";
-import manClothingReducer from "@/reducers/manClothingReducer";
-import orderDataReducer from "@/reducers/orderDataReducer";
-import womanClothingReducer from "@/reducers/womanClothingReducer";
+import cartReducer from "@/reducers/cart/cartReducer";
+import catalogReducer from "@/reducers/catalog/catalogReducer";
+import electronicsReducer from "@/reducers/electronics/electronicsReducer";
+import jeweleryReducer from "@/reducers/jewelery/jeweleryReducer";
+import manClothingReducer from "@/reducers/manClothing/manClothingReducer";
+import orderDataReducer from "@/reducers/order/orderDataReducer";
+import womanClothingReducer from "@/reducers/womanClothing/womanClothingReducer";
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from "redux";
 

@@ -1,12 +1,12 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faAngleRight} from "@fortawesome/free-solid-svg-icons"
-import { FaFacebook } from "@react-icons/all-files/fa/FaFacebook";
-import {AiFillLinkedin} from "@react-icons/all-files/ai/AiFillLinkedin"
-import {IoLogoGoogleplus} from "@react-icons/all-files/io/IoLogoGoogleplus"
-import {GrTwitter} from "@react-icons/all-files/gr/GrTwitter"
+import TwitterIcon from '@mui/icons-material/Twitter';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GoogleIcon from '@mui/icons-material/Google';
 import styles from "./footer-midle.module.scss"
 
 export default function FooterMidle(){
+    
     return(
         <>
         <div className={styles.footer_middle_wrap}>
@@ -32,14 +32,14 @@ export default function FooterMidle(){
                 <div className={`${styles.from_twitter_wrap} ${styles.footer_middle_item}`}>
                     <div className={`${styles.footer_from_twitter_title} ${styles.footer_middle_title}`}><h3>from twitter</h3></div>
                     <div className={styles.footer_from_twiter_text}>
-                        <div className={styles.twitter_icon}><GrTwitter style={{color: '#39a0b9'}}/></div>
+                        <div className={styles.twitter_icon}><TwitterIcon style={{color: '#39a0b9'}}/></div>
                         <div className={styles.footer_from_twiter_description}>
                             <span><p className={styles.normal_text}>Lorem Ipsum is simply dummy text of the printing and <span className={styles.transpatent_text}>typesetting industry. Lorem Ipsum</span> Has been the</p></span>
                         </div>
                     </div>
 
                     <div className={styles.footer_from_twiter_text}>
-                        <div className={styles.twitter_icon}><GrTwitter style={{color: '#39a0b9'}}/></div>
+                        <div className={styles.twitter_icon}><TwitterIcon style={{color: '#39a0b9'}}/></div>
                         <div className={styles.footer_from_twiter_description}>
                             <p className={styles.normal_text}>Lorem Ipsum is simply dummy text of the printing and <span className={styles.transpatent_text}>typesetting industry. Lorem Ipsum</span> Has been the</p>
                         </div>
@@ -49,12 +49,12 @@ export default function FooterMidle(){
                 <div className={`${styles.footer_information_wrap} ${styles.footer_middle_item}`}>
                     <div className={`${styles.footer_information_title} ${styles.footer_middle_title}`}><h3>information</h3></div>
                     <div className={styles.information_list_wrap}>
-                        <div className={styles.information_list_item}><FontAwesomeIcon icon={faAngleRight} /> <span>Seed utrices purus non.</span> </div>
-                        <div className={styles.information_list_item}><FontAwesomeIcon icon={faAngleRight} /> <span>Sodales sodales.</span></div>
-                        <div className={styles.information_list_item}><FontAwesomeIcon icon={faAngleRight} /> <span>Curabitur pretium dui vitae</span>.</div>
-                        <div className={styles.information_list_item}><FontAwesomeIcon icon={faAngleRight} /> <span>Donec gravida mi in nisl.</span></div>
-                        <div className={styles.information_list_item}><FontAwesomeIcon icon={faAngleRight} /> <span>Faucibus leo condimentrum.</span></div>
-                        <div className={styles.information_list_item}><FontAwesomeIcon icon={faAngleRight} /> <span>Donec et lorem suscipit</span></div>
+                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Seed utrices purus non.</span> </div>
+                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Sodales sodales.</span></div>
+                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Curabitur pretium dui vitae</span>.</div>
+                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Donec gravida mi in nisl.</span></div>
+                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Faucibus leo condimentrum.</span></div>
+                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Donec et lorem suscipit</span></div>
                     </div>
                 </div>
 
@@ -68,9 +68,9 @@ export default function FooterMidle(){
                         <p className={styles.contact_information_item}>mail@email.com</p>
                     </div>
                     <div className={styles.contact_icons}>
-                        <div className={styles.contact_icons_item}><FaFacebook/></div>
-                        <div className={styles.contact_icons_item}><AiFillLinkedin/></div>
-                        <div className={styles.contact_icons_item}><IoLogoGoogleplus/></div>
+                        <div className={styles.contact_icons_item}><FacebookIcon/></div>
+                        <div className={styles.contact_icons_item}><LinkedInIcon/></div>
+                        <div className={styles.contact_icons_item}><GoogleIcon/></div>
                     </div>
                 </div>
             </div>

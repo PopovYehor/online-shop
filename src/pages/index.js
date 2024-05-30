@@ -1,12 +1,12 @@
 'use client'
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { fetchCatalog } from "@/reducers/catalogReducer";
-import { SET_CURRENT_JEWELERY } from "@/reducers/jeweleryReducer";
-import { SET_CURRENT_ELECTRONICS } from "@/reducers/electronicsReducer";
-import { SET_CURRENT_MAN_CLOTHING } from "@/reducers/manClothingReducer";
-import { SET_CURRENT_WOMAN_CLOTHING } from "@/reducers/womanClothingReducer";
-import CatalogView from "@/components/view/catalog-view/catalog-view";
+import { fetchCatalog } from "@/reducers/catalog/catalogReducer";
+import { SET_CURRENT_JEWELERY } from "@/reducers/jewelery/jeweleryReducer";
+import { SET_CURRENT_ELECTRONICS } from "@/reducers/electronics/electronicsReducer";
+import { SET_CURRENT_MAN_CLOTHING } from "@/reducers/manClothing/manClothingReducer";
+import { SET_CURRENT_WOMAN_CLOTHING } from "@/reducers/womanClothing/womanClothingReducer";
+import CatalogView from "@/view/catalog-view/catalog-view";
 import { useAppDispatch } from "@/hooks/hooks";
 export default function Home() {
 

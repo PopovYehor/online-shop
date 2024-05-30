@@ -3,7 +3,7 @@ import styles from "./order-button.module.scss"
 import { Button } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/hooks/hooks';
-import { SET_ORDER_DELIVERY_ADDRES, SET_ORDER_DELIVERY_TYPE, SET_ORDER_EMAIL, SET_ORDER_NAME, SET_ORDER_PAYMENT_TYPE, SET_ORDER_PHONE } from '@/reducers/orderDataReducer';
+import { SET_ORDER_DELIVERY_ADDRES, SET_ORDER_DELIVERY_TYPE, SET_ORDER_EMAIL, SET_ORDER_NAME, SET_ORDER_PAYMENT_TYPE, SET_ORDER_PHONE } from '@/reducers/order/orderDataReducer';
 import { regExAddres, regExEmail, regExName,regExPhone } from '@/helpers/regEx';
 import { checkboxCheck, inputCheck } from '@/helpers/checkInputScripts';
 export default function OrderButton(){

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./count-buttons.module.scss"
 import { Button } from "@mui/material";
-import { SET_CURRENT_COUNT, SET_CURRENT_PRICE } from "@/reducers/cartReducer";
+import { SET_CURRENT_COUNT, SET_CURRENT_PRICE } from "@/reducers/cart/cartReducer";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/hooks/hooks";
 export default function CountButtons({cartItem}){

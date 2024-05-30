@@ -70,12 +70,15 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        justify-content: flex-end;
+        gap: 15px;
+        position: relative;
         .sale_cart{
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 35px;
-          height: 35px;
+          width: 40px;
+          height: 40px;
           background-color: #7db122;
           border-radius: 50%;
           border: none;
@@ -83,15 +86,24 @@
           cursor: pointer;
           svg{
             path{fill: #fff}
+            font-size: 23px;
           }
         }
         .cart_count{
-          font-size: 15px;
-          text-transform: uppercase;
-          font-weight: 900;
-          margin-left: 10px;
-          text-decoration: none;
-          color: initial;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 25px;
+          height: 25px;
+          position: absolute;
+          border-radius: 50%;
+          background-color: #ff671f;
+          top: -11px;
+          right: -8px;
+        }
+        .invisible{
+          position: absolute;
+          visibility: hidden;
         }
       }
     }

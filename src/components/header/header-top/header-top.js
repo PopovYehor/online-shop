@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './header-top.module.scss'
 
 function HeaderTop (){
@@ -24,7 +25,7 @@ function HeaderTop (){
                 <span>|</span>
                 <a className={styles.rout_page_item}>Wishlist</a>
                 <span>|</span>
-                <a className={styles.rout_page_item}>Checkout</a>
+                <Link href='/cart' className={styles.rout_page_item}>Checkout</Link>
                 <span>|</span>
                 <a className={styles.rout_page_item}>Log In</a>
                 <span>|</span>

@@ -1,5 +1,5 @@
 import { useAppDispatch } from "@/hooks/hooks"
-import { SET_CHANGE_CART } from "@/reducers/cartReducer"
+import { SET_CHANGE_CART } from "@/reducers/cart/cartReducer"
 import { useSelector } from "react-redux"
 import DeleteIcon from '@mui/icons-material/Delete';
 import styles from "./basket-item.module.scss"

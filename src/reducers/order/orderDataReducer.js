@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    order: {name: '',
+    order: {
+    name: '',
     email: '',
     phone: '',
     deliveryType: '',
@@ -38,7 +39,7 @@ const orderDataSlice = createSlice({
         SET_ORDER_PAYMENT_TYPE:(state, param)=>{
             const {payload} = param
             state.order.paymentType = payload
-        }
+        },
     }
 })
 

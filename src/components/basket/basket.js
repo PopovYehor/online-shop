@@ -30,7 +30,6 @@ export default function Basket(){
                         <>
                         <BasketItem/> 
                         <div className={styles.result_price}>
-                            <button className={styles.add_to_basket}>To order</button>
                             <h3 className={styles.result_price_text}>Total: <span className={styles.result_price_item}>{sum} $</span></h3>
                         </div>
                         </>

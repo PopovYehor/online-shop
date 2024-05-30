@@ -1,4 +1,4 @@
-import { SET_CURRENT_CART } from "@/reducers/cartReducer"
+import { SET_CURRENT_CART } from "@/reducers/cart/cartReducer"
 
 export const AddToBasket = (event, cart, catalog, hook)=>{
     const targetId = event.target.id

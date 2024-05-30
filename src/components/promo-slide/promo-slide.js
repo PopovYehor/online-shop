@@ -1,7 +1,7 @@
 import styles from "./promo-slide.module.scss"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faAngleLeft} from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { useState } from "react";
 export default function PromoSlide (){
 
     const slide1 = 'https://github.com/PopovYehor/ReactApp/blob/Shop/src/assets/slider-1.jpg?raw=true'
@@ -29,6 +29,7 @@ export default function PromoSlide (){
                 setSlideMainText(arrSliderMainText[0])
                 setSlideDescriptionText(arrSliderDescriptionText[0])
             }
+            console.log('click')
         }
         if (target.getAttribute('id') == 'slider-left'){
             if(slideIndex === 0){
@@ -50,7 +51,7 @@ export default function PromoSlide (){
         <div className={styles.promo_slider_wrap}>
             <img className={styles.slide_item_img} src={sliderImg}></img>
             <div className={styles.promo_slider_container}>
-                <div className={styles.promo_lider_btn} id="slider-left" onClick={(e)=>slider(e)}><FontAwesomeIcon icon={faAngleLeft} /></div>
+                <div className={styles.promo_lider_btn} id="slider-left" onClick={(e)=>slider(e)}><ChevronLeftIcon id="slider-left"/></div>
                 <div className={styles.promo_slider_description}>
                     <div  className={`${styles.promo_slider_item_name} ${styles.slider_item_text}`}>
                         <span>{slideMainText}</span>
@@ -59,7 +60,7 @@ export default function PromoSlide (){
                         <span >{slideDescriptionText}</span>
                     </div>
                 </div>
-                <div className={styles.promo_lider_btn} id="slider-right" onClick={(e)=>slider(e)}><FontAwesomeIcon icon={faAngleRight} /></div>
+                <div className={styles.promo_lider_btn} id="slider-right" onClick={(e)=>slider(e)}><ChevronRightIcon id="slider-right"/></div>
             </div>
         </div>
         </>
