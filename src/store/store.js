@@ -3,6 +3,7 @@ import catalogReducer from "@/reducers/catalogReducer";
 import electronicsReducer from "@/reducers/electronicsReducer";
 import jeweleryReducer from "@/reducers/jeweleryReducer";
 import manClothingReducer from "@/reducers/manClothingReducer";
+import orderDataReducer from "@/reducers/orderDataReducer";
 import womanClothingReducer from "@/reducers/womanClothingReducer";
 import { configureStore } from '@reduxjs/toolkit'
 import { combineReducers } from "redux";
@@ -13,7 +14,8 @@ const combinatedReducer = combineReducers({
     jewelery: jeweleryReducer,
     manClothing: manClothingReducer,
     womanClothing: womanClothingReducer,
-    electronics: electronicsReducer
+    electronics: electronicsReducer,
+    order: orderDataReducer
 })
 
 export const store = configureStore({

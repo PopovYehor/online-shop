@@ -13,7 +13,6 @@
     .bayer_data_container{
         display: flex;
         flex-direction: column;
-
         margin: 45px 0 60px 50px;
         h2{
             font-size: $h2;
@@ -24,17 +23,25 @@
             color: #959AAE;
             margin-top: 5px;
         }
-        input{
-            width: 530px;
-            height: 65px;
-            border: 1px solid #E7EAEF;
-            border-radius: 10px;
-            margin-top: 15px;
-        }
-        input::placeholder{
-            color: #959AAE;
-            font-size: 18px;
-            padding-left: 30px;
+        .data_input_container{
+            :not(:first-child){
+                margin-top: 20px;
+            }
+            .data_input_wrap{
+                position: relative;
+                input{
+                    width: 530px;
+                    height: 65px;
+                    border: 1px solid #E7EAEF;
+                    border-radius: 10px;
+                    margin-top: 15px;
+                    font-size: 18px;
+                    padding-left: 30px;
+                }
+                input::placeholder{
+                    color: #959AAE;
+                }
+            }
         }
     }
 }

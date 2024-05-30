@@ -21,7 +21,6 @@ const cartSlice = createSlice({
         SET_CURRENT_COUNT:(state, param)=>{
             const {payload} = param
             state.cart[payload.index].count = payload.count
-            /* state.cart = payload */
         },
         SET_CURRENT_PRICE:(state, param)=>{
             const {payload} = param

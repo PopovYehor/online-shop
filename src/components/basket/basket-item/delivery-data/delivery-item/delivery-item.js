@@ -5,6 +5,7 @@ export default function DeliveryItem({check, name, title, description, onclick})
             <div className={check == name ? `${styles.checkbox_item} ${styles.active}` : styles.checkbox_item} 
                 name = {name} onClick={(e)=>onclick(e)}>
                     <div className={styles.check}></div>
+                    <input type="radio" name={name} value={name} checked={check == name} readOnly/>
             </div>
             <div className={styles.delivery_item_text}>
             <h3>{title}</h3>

@@ -24,7 +24,7 @@
         h2{
             font-size: $h2;
             color: $color-prymary;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
         }
         .adres_delivery_title{
             margin: 35px 0 5px 0;
@@ -33,21 +33,23 @@
             font-size: 16px;
             color: #959AAE;
         }
-        input{
-            width: 530px;
-            height: 65px;
-            background-color: #F3F4F7;
-            border: 1px solid #E7EAEF;
-            border-radius: 10px;
-            margin-top: 20px;
-            padding-left: 30px;
-            font-size: 18px;
-        }
-        input::placeholder{
-            color: #959AAE;
-        }
-        input:focus{
-           outline: none;
+        .data_input_wrap{
+            position: relative;
+            input{
+                width: 530px;
+                height: 65px;
+                border: 1px solid #E7EAEF;
+                border-radius: 10px;
+                margin-top: 15px;
+                font-size: 18px;
+                padding-left: 30px;
+            }
+            input::placeholder{
+                color: #959AAE;
+            }
+            input:focus{
+                outline: none;
+             }
         }
         .upload_delivery_item{
             @include flex(row,flex-start ,center );

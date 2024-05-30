@@ -9,15 +9,18 @@ export default function PaymentData(){
         setCheck(name)
     }
     return(
-        <div className={styles.basket_delivery_wrap}>
+        <form className={styles.basket_delivery_wrap} name="payment_form">
             <div className={styles.delivery_wrap}>
                 <div className={styles.delivery_container}>
                 <h2>Payment</h2>
-                <DeliveryItem check={check} name={'bank'} title={'Bank transfer'} description={'For legal entities'} onclick={handleCheck}/>
-                <DeliveryItem check={check} name={'cash'} title={'Cash payment'} onclick={handleCheck}/>
-                <DeliveryItem check={check} name={'card'} title={'Payment by bank card'} description={'Visa, Mastercard, Maestro'} onclick={handleCheck}/>
+                <div id="error_payment_checkbox_wrap">
+                    <DeliveryItem check={check} name={'bank'} title={'Bank transfer'} description={'For legal entities'} onclick={handleCheck}/>
+                    <DeliveryItem check={check} name={'cash'} title={'Cash payment'} onclick={handleCheck}/>
+                    <DeliveryItem check={check} name={'card'} title={'Payment by bank card'} description={'Visa, Mastercard, Maestro'} onclick={handleCheck}/>
+                    <span className="error_massege_checkbox" id="error_massege_payment">*Select payment type</span>
+                </div>
                 </div>
             </div>
-        </div>
+        </form>
     )
 }
