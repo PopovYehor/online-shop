@@ -4,8 +4,27 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GoogleIcon from '@mui/icons-material/Google';
 import styles from "./footer-midle.module.scss"
-
+import { avatars } from '@/accets/footer-avatar';
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+import Link from 'next/link';
 export default function FooterMidle(){
+
+    const info = [
+        'Seed utrices purus non.',
+        'Sodales sodales.',
+        'Curabitur pretium dui vitae',
+        'Donec gravida mi in nisl.',
+        'Faucibus leo condimentrum',
+        'Donec et lorem suscipit'
+    ]
+
+    const storeContact = {
+        name: 'Leo Store',
+        media: 'Leopards media',
+        addres: 'KVM Rpad, 4590GH',
+        phone: '+44 0203 0484077',
+        email: 'mail@mail.com'
+    }
     
     return(
         <>
@@ -15,17 +34,14 @@ export default function FooterMidle(){
                     <div className={`${styles.footer_like_title} ${styles.footer_middle_title}`}><h3>facebook</h3></div>
                     <div className={styles.footer_like_members}>
                         <span className={styles.footer_like_members_text}>20000 Members</span>
-                        <button className={styles.footer_like_members_btn}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Facebook_Thumb_icon.svg/640px-Facebook_Thumb_icon.svg.png"></img> Like</button>
+                        <button className={styles.footer_like_members_btn}><ThumbUpOutlinedIcon className={styles.like_svg}/> Like</button>
                     </div>
                     <div className={styles.footer_like_members_avatar}>
-                        <div className={styles.footer_like_members_avatar_item}><img src="https://static01.nyt.com/newsgraphics/2020/11/12/fake-people/4b806cf591a8a76adfc88d19e90c8c634345bf3d/fallbacks/mobile-07.jpg"></img></div>
-                        <div className={styles.footer_like_members_avatar_item}><img src="https://static01.nyt.com/newsgraphics/2020/11/12/fake-people/4b806cf591a8a76adfc88d19e90c8c634345bf3d/fallbacks/mobile-06.jpg"></img></div>
-                        <div className={styles.footer_like_members_avatar_item}><img src="https://static01.nyt.com/newsgraphics/2020/11/12/fake-people/4b806cf591a8a76adfc88d19e90c8c634345bf3d/fallbacks/mobile-04.jpg"></img></div>
-                        <div className={styles.footer_like_members_avatar_item}><img src="https://cdn.mos.cms.futurecdn.net/THCiUmVZcgxHodGCK3EyYo.jpg"></img></div>
-                        <div className={styles.footer_like_members_avatar_item}><img src="https://static.generated.photos/vue-static/face-generator/landing/demo-previews/sex.jpg"></img></div>
-                        <div className={styles.footer_like_members_avatar_item}><img src="https://static.generated.photos/vue-static/face-generator/landing/wall/7.jpg"></img></div>
-                        <div className={styles.footer_like_members_avatar_item}><img src="https://static.generated.photos/vue-static/face-generator/landing/demo-previews/skin-tone.jpg"></img></div>
-                        <div className={styles.footer_like_members_avatar_item}><img src="https://images.generated.photos/ULY0hGog-fvXFtR1wPhD5FfkL4hRYyeJphE0keXvOtw/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/MTI1NDQ2LmpwZw.jpg"></img></div>
+                        {avatars.map((avatar)=>{
+                            return(
+                                <div className={styles.footer_like_members_avatar_item}><img src={avatar}/></div>
+                            )
+                        })}
                     </div>
                     <div className={styles.footer_like_members_avatar_text}><span>facebook Social plugin</span></div>
                 </div>
@@ -49,28 +65,27 @@ export default function FooterMidle(){
                 <div className={`${styles.footer_information_wrap} ${styles.footer_middle_item}`}>
                     <div className={`${styles.footer_information_title} ${styles.footer_middle_title}`}><h3>information</h3></div>
                     <div className={styles.information_list_wrap}>
-                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Seed utrices purus non.</span> </div>
-                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Sodales sodales.</span></div>
-                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Curabitur pretium dui vitae</span>.</div>
-                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Donec gravida mi in nisl.</span></div>
-                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Faucibus leo condimentrum.</span></div>
-                        <div className={styles.information_list_item}><ChevronRightIcon/> <span>Donec et lorem suscipit</span></div>
+                        {info.map((info)=>{
+                            return(
+                                <div className={styles.information_list_item}><ChevronRightIcon/> <span>{info}</span> </div>
+                            )
+                        })}
                     </div>
                 </div>
 
                 <div className={`${styles.footer_contant_wrap} ${styles.footer_middle_item}`}>
                     <div className={`${styles.footer_contant_title} ${styles.footer_middle_title}`}><h3>contact us</h3></div>
                     <div className={styles.contact_information_wrap}>
-                        <p className={styles.contact_information_item}>Leo Store</p>
-                        <p className={styles.contact_information_item}>Leopards media</p>
-                        <p className={styles.contact_information_item}>KVM Rpad, 4590GH</p>
-                        <p className={styles.contact_information_item}>+1 48988880099</p>
-                        <p className={styles.contact_information_item}>mail@email.com</p>
+                        <p className={styles.contact_information_item}>{storeContact.name}</p>
+                        <p className={styles.contact_information_item}>{storeContact.media}</p>
+                        <p className={styles.contact_information_item}>{storeContact.addres}</p>
+                        <p className={styles.contact_information_item}>{storeContact.phone}</p>
+                        <p className={styles.contact_information_item}>{storeContact.email}</p>
                     </div>
                     <div className={styles.contact_icons}>
-                        <div className={styles.contact_icons_item}><FacebookIcon/></div>
-                        <div className={styles.contact_icons_item}><LinkedInIcon/></div>
-                        <div className={styles.contact_icons_item}><GoogleIcon/></div>
+                        <Link href={'https://www.facebook.com/'} passHref={true} className={styles.contact_icons_item}><FacebookIcon/></Link>
+                        <Link href={'https://linkedin.com/'} passHref={true} className={styles.contact_icons_item}><LinkedInIcon/></Link>
+                        <Link href={'https://www.google.com'} passHref={true}  className={styles.contact_icons_item}><GoogleIcon/></Link>
                     </div>
                 </div>
             </div>

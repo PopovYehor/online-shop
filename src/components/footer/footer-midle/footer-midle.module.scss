@@ -5,6 +5,7 @@
     background-color: #39a0b9;
     display: flex;
     justify-content: center;
+    cursor: default;
     .footer_middle_container{
       width: $container-width;
       height: 300px;
@@ -31,22 +32,21 @@
             margin-bottom: 5px;
           } 
           .footer_like_members_btn{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             background-color: #fff;
             border: none;
-            width: 50px;
+            width: 65px;
             height: 20px;
             border-radius: 5px;
             overflow: hidden;
             position: relative;
-            font-size: 8px;
+            font-size: 12px;
             padding-left: 15px;
             font-weight: 600;
-            img{
-              position: absolute;
-              width: 30px;
-              height: 20px;
-              left: 0;
-              top: -1px;
+            svg{
+              font-size: 16px;
             }
           }
         }
@@ -144,6 +144,7 @@
             background-color: #fff;
             font-size: 20px;
             margin-right: 10px;
+            cursor: pointer;
             svg{
               fill: #39a0b9;
             }

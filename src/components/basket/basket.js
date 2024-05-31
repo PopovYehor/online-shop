@@ -40,10 +40,15 @@ export default function Basket(){
                         </div>}
                 </div>
             </div>
+            {cart.length > 0 ?
+            <>
             <BuyerData/>
             <DeliveryData/>
             <PaymentData/>
             <OrderButton/>
+            </>
+            : null
+            }
         </div>
         </>
     )
