@@ -7,9 +7,11 @@ const initialState = {
     phone: '',
     deliveryType: '',
     deliveryAddres: '',
-    paymentType: ''},
+    paymentType: '',
+    cart: []
+    },
     status: 'idle',
-    error: null
+    error: null,
 }
 
 const orderDataSlice = createSlice({
@@ -40,11 +42,21 @@ const orderDataSlice = createSlice({
             const {payload} = param
             state.order.paymentType = payload
         },
+        SET_OREDER_CART:(state, param)=>{
+            const {payload} = param
+            state.order.cart = payload
+        }
     }
 })
 
 const { actions, reducer } = orderDataSlice
-export const { SET_ORDER_NAME, SET_ORDER_EMAIL, SET_ORDER_PHONE, SET_ORDER_DELIVERY_TYPE, SET_ORDER_DELIVERY_ADDRES, SET_ORDER_PAYMENT_TYPE } = actions
+export const { SET_ORDER_NAME,
+    SET_ORDER_EMAIL,
+    SET_ORDER_PHONE,
+    SET_ORDER_DELIVERY_TYPE,
+    SET_ORDER_DELIVERY_ADDRES,
+    SET_ORDER_PAYMENT_TYPE,
+    SET_OREDER_CART } = actions
 export const OrederDataReducer = state => state.order
 
 export default orderDataSlice.reducer
