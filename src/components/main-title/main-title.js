@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Inter } from "@next/font/google";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "@/hooks/hooks";
@@ -20,6 +20,17 @@ export default function MainTitle({title}){
     const dispatch = useAppDispatch()
     const [sort, setSort] = useState('Name')
     const catalog = useSelector((state)=>state.catalog.catalog)
+    const [mobile, setMobile] = useState(false)
+
+    const checkWindowWidth = ()=>{
+        document.body.clientWidth < 420 ? 
+        setMobile(true) : setMobile(false)
+    }
+    useEffect(()=>{
+        document.body.clientWidth < 420 ? 
+        setMobile(true) : setMobile(false)
+        window.addEventListener('resize', checkWindowWidth)
+      }, [])
 
     const priceSort = ()=>{
         const catalogPriceSort = catalog.data.slice().sort((a,b)=>{
@@ -60,6 +71,7 @@ export default function MainTitle({title}){
 
     return(
         <>
+        {!mobile?
         <div className={styles.main_title}>
             <div className={styles.main_title_container}>
                 <h2>{title}</h2>
@@ -79,6 +91,11 @@ export default function MainTitle({title}){
                 </div>
             </div>
         </div>
+        :
+        <div className={styles.main_title_mobile_wrap}>
+            <h2>{title}</h2>
+        </div>
+    }
         </>
     )
 }

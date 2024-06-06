@@ -3,7 +3,7 @@ import styles from "./order-button.module.scss"
 import { Button } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/hooks/hooks';
-import { SET_ORDER_CREATEAT, SET_ORDER_DELIVERY_ADDRES, SET_ORDER_DELIVERY_TYPE, SET_ORDER_EMAIL, SET_ORDER_NAME, SET_ORDER_PAYMENT_TYPE, SET_ORDER_PHONE, SET_OREDER_CART } from '@/reducers/order/orderDataReducer';
+import { SET_CURRENT_ORDER, SET_ORDER_CREATEAT, SET_ORDER_DELIVERY_ADDRES, SET_ORDER_DELIVERY_TYPE, SET_ORDER_EMAIL, SET_ORDER_NAME, SET_ORDER_PAYMENT_TYPE, SET_ORDER_PHONE, SET_OREDER_CART } from '@/reducers/order/orderDataReducer';
 import { regExAddres, regExEmail, regExName,regExPhone } from '@/helpers/form-scripts/regEx';
 import { checkboxCheck, inputCheck } from '@/helpers/form-scripts/checkInputScripts';
 import { useEffect } from 'react';
@@ -49,7 +49,7 @@ export default function OrderButton(){
         const errorDeliveryWrap = document.getElementById('error_delivery_checkbox_wrap')
         const errorPaymentWrap = document.getElementById('error_payment_checkbox_wrap')
         //set date
-        const date = moment().format("DD-MM-YYYY hh:mm:ss")
+        const date = moment().format("DD-MM-YYYY HH:mm:ss")
         dispatch(SET_ORDER_CREATEAT(date))
         //first inputs check
         inputCheck(names, nameErrorMasege, regExName, dispatch, SET_ORDER_NAME)
@@ -72,7 +72,7 @@ export default function OrderButton(){
     useEffect(()=>{
         if(orderStatus == 'successful'){
             axios.post(ORDER_URL,order)
-            .then(res=>{setOrderStatus(res.status)})
+            .then(res=>{setOrderStatus(res.status), dispatch(SET_CURRENT_ORDER(res.data))})
             .catch(error=>setOrderError(error.message))
         }
         if(orderStatus == 201){

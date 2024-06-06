@@ -45,3 +45,28 @@
         }
     }
 }
+@media screen and (max-width: 425px) {
+    .bayer_data_wrap{
+        width: 100%;
+        margin: 10px;
+        .bayer_data_container{
+            margin: 20px;
+            h2{
+                font-size: 22px;
+                margin: 0;
+            }
+            .data_input_container{
+                :not(:first-child){
+                    margin-top: 5px;
+                }
+                .data_input_wrap{
+                    input{
+                        width: 100% !important;
+                        font-size: 16px !important;
+                        height: 55px !important;
+                    }
+                }
+            }
+        }
+    }
+}

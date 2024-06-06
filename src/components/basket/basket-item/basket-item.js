@@ -5,10 +5,22 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import styles from "./basket-item.module.scss"
 import Link from "next/link";
 import CountButtons from "./count-buttons/count-buttons";
+import { useState, useEffect } from "react";
 export default function BasketItem(){
 
     const cart = useSelector((state)=>state.cart.cart)
     const dispatch = useAppDispatch()
+    const [mobile, setMobile] = useState(false)
+
+    const checkWindowWidth = ()=>{
+        document.body.clientWidth < 426 ? 
+        setMobile(true) : setMobile(false)
+    }
+    useEffect(()=>{
+        document.body.clientWidth < 426 ? 
+        setMobile(true) : setMobile(false)
+        window.addEventListener('resize', checkWindowWidth)
+    }, [])
 
     const deleteFromBasket = (e)=>{
         const target = e.target
@@ -29,14 +41,16 @@ export default function BasketItem(){
                 </div>
                 <div className={styles.item_title}>
                     <h3 className={styles.title_item}>{elem.title}</h3>
-                    <p className={styles.item_description}>{elem.description}</p>
+                    {!mobile? <p className={styles.item_description}>{elem.description}</p> :null}
                     <div className={styles.basket_price}>          
                         <span className={styles.price}>{elem.summPrice} $</span>
                     </div>
                 </div>
-                <CountButtons cartItem={elem}/>
-                <div className={styles.delete_from_basket}>
-                    <button className={styles.delete_from_basket_btn} id={elem.id} onClick={(e)=>deleteFromBasket(e)}><DeleteIcon id={elem.id}/></button>
+                <div className={styles.item_buttons_wrap}>
+                    <CountButtons cartItem={elem}/>
+                    <div className={styles.delete_from_basket}>
+                        <button className={styles.delete_from_basket_btn} id={elem.id} onClick={(e)=>deleteFromBasket(e)}><DeleteIcon id={elem.id}/></button>
+                    </div>
                 </div>
             </div>
             )

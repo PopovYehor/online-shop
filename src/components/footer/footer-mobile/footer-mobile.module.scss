@@ -1,0 +1,36 @@
+.footer_mobile_wrap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #39a0b9;
+    .footer_mobile_contact{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 10px 10px 15px;
+        margin: 10px 0;
+        
+        .footer_mobile_contact_item{
+            color: #fff;
+            font-size: 12px;
+            margin: 0;
+        }
+    }
+    .footer_mobile_contact_header{
+        color: #fff;
+        font-weight: 100;
+        font-size: 20px;
+        border-bottom: 1px solid #ebebebbf;
+        margin: 0;
+    }
+    .footer_mobile_icons{
+        display: flex;
+        gap: 15px;
+        .footer_mobile_icons_item{
+            color: #fff;
+            svg{
+                font-size: 28px;
+            }
+        }
+    }
+}

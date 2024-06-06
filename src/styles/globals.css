@@ -100,3 +100,15 @@ a{
     padding: 5px;
     visibility: visible;
 }
+@media screen and (max-width: 425px) {
+    .main-wrap{
+        width: 100%;
+        margin: 0;
+    }
+    .error_massege.active{
+        top: -9px;
+    }
+    #error_delivery_checkbox_wrap, #error_payment_checkbox_wrap{
+        width: 100%;
+    }
+}

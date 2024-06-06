@@ -9,13 +9,13 @@ export default function CatalogView({catalog_title, item}){
     return(
         <>
         <Header/>
-        <PromoSlide/>
+        {/* <PromoSlide/> */}
         <div>
             <MainTitle title = {catalog_title}/>
             <div className="catalog-wripper">
                 <div className="catalog-container">
                     <CatalogItem catalog_item={item}/>
-                    <SaleSlide/>
+                    {/* <SaleSlide/> */}
                 </div>
             </div>
         </div>

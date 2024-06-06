@@ -117,3 +117,22 @@
         }
     }
 }
+@media screen and (max-width: 425px) {
+    .main_description_wrap{
+        width: 100%;
+        .main_description_container_wrap{    
+            width: 100%;
+            flex-direction: column;
+            .description_img{
+                width:100%;
+            }
+            .main_description_container{
+                width: 100%;
+                margin: 0;
+                .title_description{
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}

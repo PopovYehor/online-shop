@@ -6,6 +6,7 @@ export default function Layout ({ children }) {
       <Head>
         <title>Leoshop</title>
         <meta name="title" content="Leoshop" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
       </Head>
       <div>
             {children}

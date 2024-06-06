@@ -67,3 +67,26 @@
         }   
     }
 }
+@media screen and (max-width: 425px) {
+    .basket_item{
+        flex-direction: column;
+        margin-bottom: 15px;
+        .item_img{
+            width: 100%;
+        }
+        .item_title{
+            width: 100%;
+            .title_item{
+                font-size: 18px;
+            }
+            .price{
+                font-size: 24px;
+            }
+        }
+        .item_buttons_wrap{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import styles from "./product.module.scss"
-import { AddToBasket } from "@/helpers/form-scripts/cartScripts"
+import { AddToBasket } from "@/helpers/cartScripts"
 import { useAppDispatch } from "@/hooks/hooks"
 import { Button } from "@mui/material"
 import { LoadingButton } from "@mui/lab"

@@ -36,3 +36,15 @@
         }
     }
 }
+@media screen and (max-width: 425px) {
+    .order_wrap{
+        width: 100%;
+        .order_container{
+            flex-direction: column;
+        .order_text{
+            width: 295px !important;
+            margin: 20px;
+        }
+        }
+    }
+}

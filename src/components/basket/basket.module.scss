@@ -61,3 +61,15 @@
         }
     }
 }
+@media screen and (max-width: 425px) {
+    .basket_items_wrap{
+        width: 100%;
+        .basket_container{
+            width: 100%;
+            .result_price_text{
+                margin: 15px 0;
+                font-size: 30px !important;
+            }
+        }
+    }
+}

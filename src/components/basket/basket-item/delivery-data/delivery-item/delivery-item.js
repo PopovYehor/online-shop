@@ -8,8 +8,8 @@ export default function DeliveryItem({check, name, title, description, onclick})
                     <input type="radio" name={name} value={name} checked={check == name} readOnly/>
             </div>
             <div className={styles.delivery_item_text}>
-            <h3>{title}</h3>
-            <p>{description}</p>
+                <h3>{title}</h3>
+                <p>{description}</p>
             </div>
         </div>
     )
