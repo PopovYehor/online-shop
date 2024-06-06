@@ -3,15 +3,17 @@ import styles from "./order-button.module.scss"
 import { Button } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/hooks/hooks';
-import { SET_ORDER_DELIVERY_ADDRES, SET_ORDER_DELIVERY_TYPE, SET_ORDER_EMAIL, SET_ORDER_NAME, SET_ORDER_PAYMENT_TYPE, SET_ORDER_PHONE, SET_OREDER_CART } from '@/reducers/order/orderDataReducer';
+import { SET_ORDER_CREATEAT, SET_ORDER_DELIVERY_ADDRES, SET_ORDER_DELIVERY_TYPE, SET_ORDER_EMAIL, SET_ORDER_NAME, SET_ORDER_PAYMENT_TYPE, SET_ORDER_PHONE, SET_OREDER_CART } from '@/reducers/order/orderDataReducer';
 import { regExAddres, regExEmail, regExName,regExPhone } from '@/helpers/form-scripts/regEx';
 import { checkboxCheck, inputCheck } from '@/helpers/form-scripts/checkInputScripts';
 import { useEffect } from 'react';
 import { axios } from '@/services/axiosServices';
 import { ORDER_URL } from '@/constants/api';
 import { useState } from 'react';
- 
-import { redirect, useRouter } from 'next/navigation'
+import Alert from '@mui/material/Alert';
+import { useRouter } from 'next/navigation'
+import moment from 'moment';
+import { SET_CHANGE_CART } from '@/reducers/cart/cartReducer';
 export default function OrderButton(){
 
     const order = useSelector((state)=>state.order.order)
@@ -19,10 +21,11 @@ export default function OrderButton(){
     const dispatch = useAppDispatch()
 
     const [orderStatus, setOrderStatus] = useState(0)
-    const [orderError, setOrderError] = useState('')
+    const [orderError, setOrderError] = useState('idle')
+    const [alert, setAlert] = useState(false)
 
     const router = useRouter()
-    const getData =()=>{
+    const setData =()=>{
         //forms
         const buyerForm = document.forms.buyer_form
         const deliveryForm = document.forms.delivery_form
@@ -45,39 +48,51 @@ export default function OrderButton(){
         //error wraps
         const errorDeliveryWrap = document.getElementById('error_delivery_checkbox_wrap')
         const errorPaymentWrap = document.getElementById('error_payment_checkbox_wrap')
-
+        //set date
+        const date = moment().format("DD-MM-YYYY hh:mm:ss")
+        dispatch(SET_ORDER_CREATEAT(date))
+        //first inputs check
         inputCheck(names, nameErrorMasege, regExName, dispatch, SET_ORDER_NAME)
         inputCheck(email, emailErrorMasege, regExEmail, dispatch, SET_ORDER_EMAIL)
         inputCheck(phone, phoneErrorMasege, regExPhone, dispatch, SET_ORDER_PHONE)
         inputCheck(deliveryAddres, addresErrorMasege, regExAddres, dispatch, SET_ORDER_DELIVERY_ADDRES)
         checkboxCheck(allInputDeliveryForm, errorDeliveryWrap, deliveryErrorMassege, dispatch, SET_ORDER_DELIVERY_TYPE)
         checkboxCheck(allInputPaymentForm, errorPaymentWrap, paymentErrorMassege, dispatch, SET_ORDER_PAYMENT_TYPE)
+        //set cart
         dispatch(SET_OREDER_CART(cart))
-        
+        //second inputs check
         const errorArr = [names, email, phone, deliveryAddres, deliveryErrorMassege, errorDeliveryWrap, errorPaymentWrap]
         const errorCheck = errorArr.some((elem)=>elem.classList.contains('error')||elem.classList.contains('error_checkbox'))
-
+        //post req
         if(errorCheck == false){
-            router.push('/done')
-            /* axios.post(ORDER_URL,order)
-            .then(res=>{setOrderStatus(res.status)})
-            .catch(error=>setOrderError(error)) */
-            
+            setOrderStatus('successful')
         }
     }
 
-    /* useEffect(()=>{
-        const router = useRouter()
+    useEffect(()=>{
+        if(orderStatus == 'successful'){
+            axios.post(ORDER_URL,order)
+            .then(res=>{setOrderStatus(res.status)})
+            .catch(error=>setOrderError(error.message))
+        }
         if(orderStatus == 201){
             router.push('/done')
+            dispatch(SET_CHANGE_CART([]))
         }
-    },[orderStatus]) */
+    },[orderStatus])
+    useEffect(()=>{
+        if(orderError!='idle'){
+            setAlert(true)
+        }
+    },
+    [orderError])
     
     return(
+        <>
         <div className={styles.order_button}>
             <div className={styles.order_wrap}>
                 <div className={styles.order_container}>
-                    <Button /* href={'/done'} */ className={styles.checkout} onClick={getData}>
+                    <Button className={styles.checkout} onClick={setData}>
                         <ShoppingCartIcon/>
                         <p className={styles.button_text}>Checkout</p>
                     </Button>
@@ -85,5 +100,9 @@ export default function OrderButton(){
                 </div>
             </div>
         </div>
+        {alert?
+        <Alert severity="error" variant="filled" onClose={()=>{setAlert(false)}}>{orderError}</Alert>
+        :null}
+        </>
     )
 }
