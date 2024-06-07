@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     order: {
+    id: '',
     name: null,
     email: null,
     phone: null,
@@ -10,7 +11,7 @@ const initialState = {
     paymentType: null,
     createAt: null,
     updateAt: '',
-    cart: [null]
+    cart: [{id: '',image: ''}]
     },
     status: 'idle',
     error: null,

@@ -1,3 +1,6 @@
+#root{
+    height: 100vh;
+}
 .catalog-wripper{
     width: 100%;
     display: flex;
@@ -45,6 +48,9 @@ a{
 }
 .css-ahj2mt-MuiTypography-root{
     font-family: unset ;
+}
+.css-hyum1k-MuiToolbar-root{
+    justify-content: space-between;
 }
 .slide-in{
     position: absolute;
@@ -100,7 +106,10 @@ a{
     padding: 5px;
     visibility: visible;
 }
-@media screen and (max-width: 425px) {
+.css-1bjk3jo-MuiButtonBase-root-MuiBottomNavigationAction-root.Mui-selected {
+    color: #39a0b9;
+}
+@media screen and (max-width: 450px) {
     .main-wrap{
         width: 100%;
         margin: 0;

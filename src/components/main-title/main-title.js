@@ -15,22 +15,11 @@ const inter = Inter({
     subsets:['latin']
   })
 
-export default function MainTitle({title}){
+export default function MainTitle({title, mobile}){
 
     const dispatch = useAppDispatch()
     const [sort, setSort] = useState('Name')
     const catalog = useSelector((state)=>state.catalog.catalog)
-    const [mobile, setMobile] = useState(false)
-
-    const checkWindowWidth = ()=>{
-        document.body.clientWidth < 420 ? 
-        setMobile(true) : setMobile(false)
-    }
-    useEffect(()=>{
-        document.body.clientWidth < 420 ? 
-        setMobile(true) : setMobile(false)
-        window.addEventListener('resize', checkWindowWidth)
-      }, [])
 
     const priceSort = ()=>{
         const catalogPriceSort = catalog.data.slice().sort((a,b)=>{

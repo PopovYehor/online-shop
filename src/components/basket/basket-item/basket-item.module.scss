@@ -66,8 +66,12 @@
             background-color: #dbdbdb;
         }   
     }
+    .item_buttons_wrap{
+        display: flex;
+        gap: 30px;
+    }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 450px) {
     .basket_item{
         flex-direction: column;
         margin-bottom: 15px;

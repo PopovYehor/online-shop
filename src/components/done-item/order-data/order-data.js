@@ -1,34 +1,17 @@
 import { useEffect, useState } from 'react'
 import styles from './orderdata.module.scss'
-import axios from 'axios'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
+import { useRouter } from 'next/navigation'
 export default function OrderData(){
     const order = useSelector((state)=>state.order.order)
-    /* const arr = {
-        cart: [{
-                count: 0,
-                image: "",
-                summPrice: 0,
-                title: "",
-            }],
-        id: "",
-        createAt: "",
-        deliveryAddres: "",
-        deliveryType: "",
-        email: "",
-        name: "",
-        paymentType: "",
-        phone: ""
-    } */
     const [summ, setSumm] = useState(0)
-    /* const [order, setOrder] = useState(arr) */
-    /* useEffect(()=>{
-        axios.get('http://localhost:5000/order/666193517d95269792ba8ec4')
-        .then(res=>setOrder(res.data))
-    },[]) */
+    const router = useRouter()
 
     useEffect(()=>{
+        if(order.name == null){
+            router.push('/')
+        }
         setSumm(()=>{
             return(
                 order.cart.reduce((accumulator, object) => {

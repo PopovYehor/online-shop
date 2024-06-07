@@ -40,6 +40,26 @@
         margin-top: 75px;
     }
 }
-
+@media screen and (max-width: 450px) {
+    .done_wrap{
+        margin-top: 25px;
+        .done_item{
+            display: none !important;
+        }
+        .done_item_text{
+            margin-top: 0;
+            padding: 15px;
+            .done_item_header{
+                font-size: 22px;
+            }
+            .done_item_description{
+                font-size: 16px;
+            }
+        }
+        .done_orderdata_container{
+            margin-top: 50px;
+        }
+    }
+}
 
 

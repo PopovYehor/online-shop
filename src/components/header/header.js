@@ -3,19 +3,18 @@ import HeaderBottom from "@/components/header/header-buttom/header-bottom"
 import HeaderTop from "@/components/header/header-top/header-top"
 import { useEffect, useState } from "react"
 import HeaderMobile from "./header-mobile/header-mobile"
-export default function Header(){
+import { useSelector } from "react-redux"
+import { useAppDispatch } from "@/hooks/hooks"
+import { checkMobile, checkMobileListener } from "@/helpers/mobileScripts/ismobile"
 
-    const [mobile, setMobile] = useState(false)
-    const checkWindowWidth = ()=>{
-        document.body.clientWidth < 420 ? 
-        setMobile(true) : setMobile(false)
-    }
+export default function Header(){
+    const mobile = useSelector((state)=>state.mobile.mobile)
+    const dispatch = useAppDispatch()
+
     useEffect(()=>{
-        document.body.clientWidth < 420 ? 
-        setMobile(true) : setMobile(false)
-        window.addEventListener('resize', checkWindowWidth)
+        checkMobile(dispatch)
+        checkMobileListener(dispatch)
     }, [])
-    
     return(
         <>
         {!mobile?

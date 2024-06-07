@@ -1,6 +1,7 @@
 import cartReducer from "@/reducers/cart/cartReducer";
 import catalogReducer from "@/reducers/catalog/catalogReducer";
 import electronicsReducer from "@/reducers/electronics/electronicsReducer";
+import mobileReducer  from "@/reducers/isMobile/isMobile";
 import jeweleryReducer from "@/reducers/jewelery/jeweleryReducer";
 import manClothingReducer from "@/reducers/manClothing/manClothingReducer";
 import orderDataReducer from "@/reducers/order/orderDataReducer";
@@ -15,7 +16,8 @@ const combinatedReducer = combineReducers({
     manClothing: manClothingReducer,
     womanClothing: womanClothingReducer,
     electronics: electronicsReducer,
-    order: orderDataReducer
+    order: orderDataReducer,
+    mobile: mobileReducer
 })
 
 export const store = configureStore({

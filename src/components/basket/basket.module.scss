@@ -61,7 +61,7 @@
         }
     }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 450px) {
     .basket_items_wrap{
         width: 100%;
         .basket_container{
@@ -70,6 +70,12 @@
                 margin: 15px 0;
                 font-size: 30px !important;
             }
+        }
+    }
+    .empty_cart{
+        font-size: 28px !important;
+        .empty_cart_link{
+            font-size: 20px !important;
         }
     }
 }

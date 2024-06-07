@@ -39,3 +39,23 @@
         font-size: 20px;
     }
 }
+@media screen and (max-width: 450px) {
+    .orderdata_wrap{
+        width: 100%;
+        .order_items_wrap{
+            padding: 8px 15px 8px 15px;
+            gap: 10px;
+            .order_items_container{
+                font-size: 14px;
+            }
+        }
+        .orderdata_data{
+            font-size: 16px;
+            padding: 15px;
+            margin: 0;
+            span{
+                border-bottom: 1px solid #f1f0f0;
+            }
+        }
+    }
+}

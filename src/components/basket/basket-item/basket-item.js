@@ -6,20 +6,16 @@ import styles from "./basket-item.module.scss"
 import Link from "next/link";
 import CountButtons from "./count-buttons/count-buttons";
 import { useState, useEffect } from "react";
+import { checkMobile, checkMobileListener } from "@/helpers/mobileScripts/ismobile";
 export default function BasketItem(){
 
     const cart = useSelector((state)=>state.cart.cart)
+    const mobile = useSelector((state)=>state.mobile.mobile)
     const dispatch = useAppDispatch()
-    const [mobile, setMobile] = useState(false)
 
-    const checkWindowWidth = ()=>{
-        document.body.clientWidth < 426 ? 
-        setMobile(true) : setMobile(false)
-    }
     useEffect(()=>{
-        document.body.clientWidth < 426 ? 
-        setMobile(true) : setMobile(false)
-        window.addEventListener('resize', checkWindowWidth)
+        checkMobile(dispatch)
+        checkMobileListener(dispatch)
     }, [])
 
     const deleteFromBasket = (e)=>{
@@ -28,8 +24,6 @@ export default function BasketItem(){
         const change = cart.filter(elem => elem.id != targetId)
         dispatch(SET_CHANGE_CART(change))
     }
-
-
 
     return(
         <>

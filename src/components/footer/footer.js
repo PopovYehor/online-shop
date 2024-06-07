@@ -5,17 +5,18 @@ import FooterMidle from "@/components/footer/footer-midle/footer-midle"
 import FooterBottom from "@/components/footer/footer-bottom/footer-bottom"
 import FooterMobile from "./footer-mobile/footer-mobile"
 import { useState, useEffect } from "react"
+import { useAppDispatch} from "@/hooks/hooks"
+import { useSelector } from "react-redux"
+import { checkMobile, checkMobileListener } from "@/helpers/mobileScripts/ismobile"
+
 export default function Footer(){
-    const [mobile, setMobile] = useState(false)
-    const checkWindowWidth = ()=>{
-        document.body.clientWidth < 420 ? 
-        setMobile(true) : setMobile(false)
-    }
+    const mobile = useSelector((state)=>state.mobile.mobile)
+    const dispatch = useAppDispatch()
+
     useEffect(()=>{
-        document.body.clientWidth < 420 ? 
-        setMobile(true) : setMobile(false)
-        window.addEventListener('resize', checkWindowWidth)
-      }, [])
+        checkMobile(dispatch)
+        checkMobileListener(dispatch)
+    }, [])
     return(
         <>
         <footer className={style.footer_style}>
@@ -25,7 +26,10 @@ export default function Footer(){
             <FooterMidle/>
             <FooterBottom/>
             </>
-            :<FooterMobile/>}
+            :
+            <>
+            <FooterMobile/>
+            </>}
         </footer>
         </>
     )

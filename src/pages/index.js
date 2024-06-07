@@ -46,5 +46,6 @@ export default function Home() {
 
   return (
     <CatalogView catalog_title={'CATALOG'} item={catalog.catalog}></CatalogView>
+    
   );
 }
