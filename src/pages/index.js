@@ -1,20 +1,30 @@
 'use client'
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { fetchCatalog } from "@/reducers/catalog/catalogReducer";
 import { SET_CURRENT_JEWELERY } from "@/reducers/jewelery/jeweleryReducer";
 import { SET_CURRENT_ELECTRONICS } from "@/reducers/electronics/electronicsReducer";
 import { SET_CURRENT_MAN_CLOTHING } from "@/reducers/manClothing/manClothingReducer";
 import { SET_CURRENT_WOMAN_CLOTHING } from "@/reducers/womanClothing/womanClothingReducer";
-import CatalogView from "@/view/catalog-view/catalog-view";
 import { useAppDispatch } from "@/hooks/hooks";
+import PromoSlide from "@/components/promo-slide/promo-slide"
+import MainTitle from "@/components/main-title/main-title"
+import CatalogItem from "@/components/catalog-item/catalog-item"
+import SaleSlide from "@/components/sale-slide/sale-slide"
+import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
+import BottomNav from "@/components/bottom-nav/bottom-nav";
+import { checkMobile, checkMobileListener } from "@/helpers/mobileScripts/ismobile";
+
 export default function Home() {
 
-  /* const postsUrl = 'https://popov-test-server.onrender.com/api/posts' */
   const dispatch = useAppDispatch()
   const catalog = useSelector((state)=>state.catalog)
+  const mobile = useSelector((state)=>state.mobile.mobile)
 
   useEffect(()=>{
+    checkMobile(dispatch)
+    checkMobileListener(dispatch)
     if(catalog.status == 'idle'){
       dispatch(fetchCatalog())
     }
@@ -45,7 +55,20 @@ export default function Home() {
   },[catalog])
 
   return (
-    <CatalogView catalog_title={'CATALOG'} item={catalog.catalog}></CatalogView>
-    
+        <>
+        <Header/>
+        {!mobile?<PromoSlide/>:null}
+        <div>
+            <MainTitle title = {'CATALOG'} mobile={mobile}/>
+            <div className="catalog-wripper">
+                <div className="catalog-container">
+                    <CatalogItem catalog_item={catalog.catalog}/>
+                    {!mobile?<SaleSlide/>:null}
+                </div>
+            </div>
+        </div>
+        <Footer/>
+        <BottomNav/>
+    </>
   );
 }
