@@ -9,8 +9,9 @@ export const AddToBasket = (event, cart, catalog, hook)=>{
     if (!cartCheck){
         catalog.data.forEach(elem => {
             if(elem.id == id){
+                const elementId = elem.id.toString()
                 const summPrice = elem.price
-                const elemWithCount = {...elem, count, summPrice}
+                const elemWithCount = {...elem, count, summPrice, id:elementId}
                 hook(SET_CURRENT_CART(elemWithCount))
             }
             else{null}
