@@ -3,7 +3,7 @@ import styles from "./order-button.module.scss"
 import { Button } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/hooks/hooks';
-import { SET_CURRENT_ORDER, SET_ORDER_CREATEAT, SET_ORDER_DELIVERY_ADDRES, SET_ORDER_DELIVERY_TYPE, SET_ORDER_EMAIL, SET_ORDER_NAME, SET_ORDER_PAYMENT_TYPE, SET_ORDER_PHONE, SET_OREDER_CART } from '@/reducers/order/orderDataReducer';
+import { SET_CURRENT_ORDER, SET_CURRENT_ORDER_ERROR, SET_CURRENT_ORDER_STATUS, SET_ORDER_CREATEAT, SET_ORDER_DELIVERY_ADDRES, SET_ORDER_DELIVERY_TYPE, SET_ORDER_EMAIL, SET_ORDER_NAME, SET_ORDER_PAYMENT_TYPE, SET_ORDER_PHONE, SET_OREDER_CART } from '@/reducers/order/orderDataReducer';
 import { regExAddres, regExEmail, regExName,regExPhone } from '@/helpers/form-scripts/regEx';
 import { checkboxCheck, inputCheck } from '@/helpers/form-scripts/checkInputScripts';
 import { useEffect } from 'react';
@@ -17,14 +17,14 @@ import { SET_CHANGE_CART } from '@/reducers/cart/cartReducer';
 export default function OrderButton(){
 
     const order = useSelector((state)=>state.order.order)
+    const orderStatus = useSelector((state)=>state.order.status)
+    const orderError = useSelector((state)=>state.order.error)
     const cart = useSelector((state)=>state.cart.cart)
-    const dispatch = useAppDispatch()
-
-    const [orderStatus, setOrderStatus] = useState(0)
-    const [orderError, setOrderError] = useState('idle')
     const [alert, setAlert] = useState(false)
 
+    const dispatch = useAppDispatch()
     const router = useRouter()
+
     const setData =()=>{
         //forms
         const buyerForm = document.forms.buyer_form
@@ -63,25 +63,32 @@ export default function OrderButton(){
         //second inputs check
         const errorArr = [names, email, phone, deliveryAddres, deliveryErrorMassege, errorDeliveryWrap, errorPaymentWrap]
         const errorCheck = errorArr.some((elem)=>elem.classList.contains('error')||elem.classList.contains('error_checkbox'))
-        //post req
+        //to post req
         if(errorCheck == false){
-            setOrderStatus('successful')
+            dispatch(SET_CURRENT_ORDER_STATUS('successful'))
         }
     }
-
+    // order post req
     useEffect(()=>{
         if(orderStatus == 'successful'){
             axios.post(ORDER_URL,order)
-            .then(res=>{setOrderStatus(res.status), dispatch(SET_CURRENT_ORDER(res.data))})
-            .catch(error=>setOrderError(error.message))
+            .then(res=>{
+                dispatch(SET_CURRENT_ORDER_STATUS(res.status))
+                dispatch(SET_CURRENT_ORDER(res.data))
+            })
+            .catch(error=>dispatch(SET_CURRENT_ORDER_ERROR(error)))
         }
+    },[orderStatus])
+    // route to done page 
+    useEffect(()=>{
         if(orderStatus == 201){
             router.push('/done')
             dispatch(SET_CHANGE_CART([]))
         }
     },[orderStatus])
+    // show alert if error
     useEffect(()=>{
-        if(orderError!='idle'){
+        if(orderError!=null){
             setAlert(true)
         }
     },

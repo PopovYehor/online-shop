@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
-import DeliveryItem from "../basket-item/delivery-data/delivery-item/delivery-item"
-import styles from "../basket-item/delivery-data/delivery-data.module.scss"
+import DeliveryItem from "../delivery-data/delivery-item/delivery-item"
+import styles from "../delivery-data/delivery-data.module.scss"
 import { errorRemove } from "@/helpers/form-scripts/checkInputScripts"
 export default function PaymentData(){
     const [check, setCheck] = useState('')
