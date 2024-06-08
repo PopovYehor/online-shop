@@ -1,0 +1,1 @@
+export const emptyProductItem = {data:[{title: 0, id: 0}]}
