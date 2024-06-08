@@ -4,13 +4,14 @@ import { useState, useEffect } from "react"
 import BasketItem from "./basket-item/basket-item"
 import Link from "next/link"
 import { Button } from "@mui/material"
-import DeliveryData from "./basket-item/delivery-data/delivery-data"
-import BuyerData from "./basket-item/buyer-data/buyer-data"
-import PaymentData from "./payment-data/payment-data"
-import OrderButton from "./order-button/order-button"
+import DeliveryData from "./cart-forms/delivery-data/delivery-data"
+import BuyerData from "./cart-forms/buyer-data/buyer-data"
+import PaymentData from "./cart-forms/payment-data/payment-data"
+import OrderButton from "./cart-forms/order-button/order-button"
 
 export default function Basket(){
     const cart = useSelector((state)=>state.cart.cart)
+    const order = useSelector((state)=>state.order.order)
     const [sum, setSum] = useState('')
     useEffect(()=>{
         setSum(()=>{

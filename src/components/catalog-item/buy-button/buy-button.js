@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './buy-button.module.scss'
 import DoneIcon from '@mui/icons-material/Done'
 import { LoadingButton } from '@mui/lab'
@@ -7,10 +7,12 @@ import { useAppDispatch } from '@/hooks/hooks'
 import { AddToBasket } from '@/helpers/cartScripts'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Button } from '@mui/material'
+import { emptyOrder } from '@/constants/order'
+import { SET_CURRENT_ORDER, SET_CURRENT_ORDER_ERROR, SET_CURRENT_ORDER_STATUS } from '@/reducers/order/orderDataReducer'
 
 export function BuyButton({id}){
     const [transition, setTransition] = useState(false)
-    
+    const order = useSelector((state)=>state.order)
     const cart = useSelector((state)=>state.cart.cart)
     const catalog = useSelector((state)=>state.catalog.catalog)
     const dispatch = useAppDispatch()
@@ -19,8 +21,16 @@ export function BuyButton({id}){
         setTransition(true)
         setTimeout(()=>{
             AddToBasket(e,cart, catalog, dispatch)
-        }, 1000)
+        }, 500)
     }
+    //check empty order
+    useEffect(()=>{
+        if(order.status != 'idle'){
+            dispatch(SET_CURRENT_ORDER(emptyOrder))
+            dispatch(SET_CURRENT_ORDER_STATUS('idle'))
+            dispatch(SET_CURRENT_ORDER_ERROR(null))
+        }
+    },[cart])
 
     return(
         <>

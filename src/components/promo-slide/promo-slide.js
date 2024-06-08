@@ -29,7 +29,6 @@ export default function PromoSlide (){
                 setSlideMainText(arrSliderMainText[0])
                 setSlideDescriptionText(arrSliderDescriptionText[0])
             }
-            console.log('click')
         }
         if (target.getAttribute('id') == 'slider-left'){
             if(slideIndex === 0){

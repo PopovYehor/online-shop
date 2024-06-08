@@ -8,16 +8,19 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useEffect, useState } from "react"
 import DoneIcon from '@mui/icons-material/Done';
 import Link from "next/link"
+import { SET_CURRENT_ORDER, SET_CURRENT_ORDER_ERROR, SET_CURRENT_ORDER_STATUS } from '@/reducers/order/orderDataReducer'
+
 export default function Products({id=null, img, title, description, price}){
     const [transition, setTransition] = useState(false)
     const [cartCheck, setCartCheck] = useState(false)
+    const order = useSelector((state)=>state.order)
     const cart = useSelector((state)=>state.cart.cart)
     const catalog = useSelector((state)=>state.catalog.catalog)
     const dispatch = useAppDispatch()
 
     const transitionBtn = ()=>{
         setCartCheck(true)
-        setTimeout(()=>{setTransition(true)}, 2000)
+        setTimeout(()=>{setTransition(true)}, 1000)
     }
 
     useEffect(()=>{
@@ -25,6 +28,14 @@ export default function Products({id=null, img, title, description, price}){
             (setTransition(true), setCartCheck(true))
             : (setTransition(false), setCartCheck(false))
     },[id])
+
+    useEffect(()=>{
+        if(order.status != 'idle'){
+            dispatch(SET_CURRENT_ORDER(emptyOrder))
+            dispatch(SET_CURRENT_ORDER_STATUS('idle'))
+            dispatch(SET_CURRENT_ORDER_ERROR(null))
+        }
+    },[cart])
 
     return(
     <>

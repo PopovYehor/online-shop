@@ -55,7 +55,7 @@ export default function OrderData(){
                     <span>Delivery type: {order.deliveryType}</span>
                     <span>Payment type: {order.paymentType}</span>
                     <span>To pay: {summ} $</span>
-                    <span>Create order at: {moment(order.createAt, "DD-MM-YYYY hh:mm:ss").format('DD/MM/YY hh:mm')}</span>
+                    <span>Create order at: {moment(order.createAt, "DD-MM-YYYY HH:mm:ss").format('DD/MM/YY HH:mm')}</span>
                 </div>
             </div>
         </div>
