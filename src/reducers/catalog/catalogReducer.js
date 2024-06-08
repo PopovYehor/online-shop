@@ -1,9 +1,11 @@
 import { API_URL } from "@/constants/api"
+import { emptyProductItem } from "@/constants/product"
 import { axios } from "@/services/axiosServices"
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    catalog: {data:[{title: 0, id: 0}]},
+    catalog: emptyProductItem,
+    selectProduct: emptyProductItem,
     status: 'idle',
     error: null
 }
@@ -27,7 +29,11 @@ const catalogSlice = createSlice({
         SET_CURRENT_CATALOG:(state, param)=>{
             const { payload } = param
             state.catalog.data =  payload
-        }
+        },
+        SET_SELECTED_PRODUCT:(state, param)=>{
+            const {payload} = param
+            state.selectProduct = payload
+        },
     },
     extraReducers(builder){
         builder
@@ -45,7 +51,7 @@ const catalogSlice = createSlice({
     }
 })
 const { actions, reducer } = catalogSlice
-export const { SET_CURRENT_CATALOG } = actions
+export const { SET_CURRENT_CATALOG, SET_SELECTED_PRODUCT } = actions
 export const CatalogReducer = state => state.catalog
 
 export default catalogSlice.reducer

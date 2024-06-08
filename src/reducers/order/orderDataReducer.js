@@ -1,18 +1,8 @@
+import { emptyOrder } from "@/constants/order"
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    order: {
-    id: '',
-    name: null,
-    email: null,
-    phone: null,
-    deliveryType: null,
-    deliveryAddres: null,
-    paymentType: null,
-    createAt: null,
-    updateAt: '',
-    cart: [{id: '',image: ''}]
-    },
+    order: emptyOrder,
     status: 'idle',
     error: null,
 }
@@ -56,6 +46,14 @@ const orderDataSlice = createSlice({
         SET_CURRENT_ORDER: (state, param)=>{
             const {payload} = param
             state.order = payload
+        },
+        SET_CURRENT_ORDER_STATUS: (state, param)=>{
+            const {payload} = param
+            state.status = payload
+        },
+        SET_CURRENT_ORDER_ERROR: (state, param)=>{
+            const {payload} = param
+            state.error = payload
         }
     }
 })
@@ -69,7 +67,9 @@ export const { SET_ORDER_NAME,
     SET_ORDER_PAYMENT_TYPE,
     SET_OREDER_CART,
     SET_ORDER_CREATEAT,
-    SET_CURRENT_ORDER } = actions
+    SET_CURRENT_ORDER,
+    SET_CURRENT_ORDER_STATUS,
+    SET_CURRENT_ORDER_ERROR } = actions
 export const OrederDataReducer = state => state.order
 
 export default orderDataSlice.reducer

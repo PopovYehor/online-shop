@@ -1,7 +1,8 @@
+import { emptyProductItem } from "@/constants/product"
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    manClothing: {data:[{title: 0, id: 0}]},
+    manClothing: emptyProductItem,
     status: 'idle',
     error: null
 }
