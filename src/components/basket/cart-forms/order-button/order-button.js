@@ -69,7 +69,9 @@ export default function OrderButton(){
         }
     }
     // order post req
-    useEffect(()=>{
+
+    // for dev
+    /* useEffect(()=>{
         if(orderStatus == 'successful'){
             axios.post(ORDER_URL,order)
             .then(res=>{
@@ -78,10 +80,22 @@ export default function OrderButton(){
             })
             .catch(error=>dispatch(SET_CURRENT_ORDER_ERROR(error)))
         }
-    },[orderStatus])
+    },[orderStatus]) */
+
+    //for demo
+    useEffect(()=>{
+        if(orderStatus == 'successful'){
+            axios.post(ORDER_URL,order)
+            .then(res=>{
+                dispatch(SET_CURRENT_ORDER_STATUS(res.status))
+                dispatch(SET_CURRENT_ORDER(order))
+            })
+            .catch(error=>dispatch(SET_CURRENT_ORDER_ERROR(error)))
+        }
+    },[orderStatus]) 
     // route to done page 
     useEffect(()=>{
-        if(orderStatus == 201){
+        if(orderStatus < 300){
             router.push('/done')
             dispatch(SET_CHANGE_CART([]))
         }

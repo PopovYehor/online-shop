@@ -47,7 +47,7 @@ export default function OrderData(){
                     )
                 })}
                 <div className={styles.orderdata_data}>
-                    <span>Order №: {order.id.replace(/[a-z]/g, '')}</span>
+                    <span>Order №: {order.id ? order.id.replace(/[a-z]/g, '') : 'demo id'}</span>
                     <span>Name: {order.name}</span>
                     <span>Phone: {order.phone}</span>
                     <span>Email: {order.email}</span>
