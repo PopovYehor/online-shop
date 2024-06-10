@@ -41,7 +41,7 @@ a{
     min-width: 0px;
 }
 .css-11qr2p8-MuiButtonBase-root-MuiButton-root{
-    min-width: 0px;
+    min-width: 0px !important;
 }
 .css-1k23hlb-MuiButtonBase-root-MuiButton-root{
     min-width: 0px;
